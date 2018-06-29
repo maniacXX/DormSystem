@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="css/login.css">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <div class="logo"></div>
+    </div>
+    <div class="main">
+        <div id="title">
+            <h1>学生寝室管理系统</h1>
+        </div>
+        <div id="loginform">
+            <li>
+                <input type="text" id="admin" value="" placeholder="请输入学号"/>
+            </li>
+            <li>
+                <span class="help-block" id="adminhelp"></span>
+            </li>
+            <li>
+                <input type="password" id="password" value="" placeholder="请输入密码"/>
+            </li>
+            <li>
+                <span class="help-block" id="passwordhelp"></span>
+            </li>
+            <li>
+                <span onclick="alert('请联系管理员重置密码')">忘记密码</span>
+            </li>
+            <li>
+                <button  id="login">登录</button>
+            </li>
+        </div>
+    </div>
+</div>
+<script>
+    //错误信息提示方法
+    function show_validate_msg(ele,status,msg) {
+        //清除当前元素的状态
+        $(ele).removeClass("has-success has-error")
+        $(ele+"help").text("");
+
+        //添加新的状态
+        $(ele).addClass("has-"+status);
+        $(ele+"help").text(msg);
+    }
+
+    //admin数据验证
+    $("#admin").change(function () {
+        var admin=$("#admin").val();
+        var reg=/^[0-9]{12}$/;
+        if(!reg.test(admin)){
+            show_validate_msg("#admin", "error", "学号需要是12位的数字");
+        }else{
+            show_validate_msg("#admin", "success", "");
+        }
+    });
+
+    //密码验证是否为空
+    $("#password").change(function () {
+        var password=$("#password").val();
+        if(password==""||password==null){
+            show_validate_msg("#password", "error", "密码不能为空");
+        }else{
+            show_validate_msg("#password", "success", "");
+        }
+    });
+
+    $("#login").click(function () {
+        var password=$("#password").val();
+        if(password==""||password==null){
+            show_validate_msg("#password", "error", "密码不能为空");
+            return false;
+        }else{
+            show_validate_msg("#password", "success", "");
+        }
+
+        var admin=$("#admin").val();
+        var message=admin+"-"+password;
+        //ajax验证账号是否存在以及密码是否正确
+        $.ajax({
+            url:"/student/check/"+message,
+            type:"POST",
+            success:function (result) {
+                if(result.code==0){
+                    if(result.extend.reason==1){
+                        show_validate_msg("#password", "error", "密码错误");
+                    }else {
+                        show_validate_msg("#admin", "error", "该学号不存在");
+                    }
+                }else {
+                        location.href="homepage.html";
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
