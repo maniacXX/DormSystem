@@ -149,9 +149,9 @@ main{
 }
 .affirm_news{
   position: relative;
-  margin: 100px auto;
+  margin: 70px auto;
   width: 700px;
-  height: 300px;
+  height: 368px;
   border: 1px solid #CCC;
 }
 .affirm_header{
@@ -163,9 +163,9 @@ main{
   font-family: "Segoe UI Semibold";
   background: #b3d4fc;
 }
-.affirm_news>button{
+#enter{
   position: absolute;
-  bottom: 10px;
+  bottom: 75px;
   left: 70px;
   font-family: "幼圆", "方正兰亭超细黑简体", "微软雅黑", "微软雅黑 Light", serif;
   border-radius: 10px;
@@ -177,16 +177,34 @@ main{
   background: #b3d4fc;
   transition: 1s;
 }
-.affirm_news>button:hover{
+#enter:hover{
   color: white;
   background: #dec096;
+}
+#reset{
+    position: absolute;
+    bottom: 10px;
+    left: 70px;
+    font-family: "幼圆", "方正兰亭超细黑简体", "微软雅黑", "微软雅黑 Light", serif;
+    border-radius: 10px;
+    width: 80%;
+    height: 60px;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    background: #b3d4fc;
+    transition: 1s;
+}
+#reset:hover{
+    color: white;
+    background: #dec096;
 }
 .affirm_middle>ul{
   position: absolute;
   left: 100px;
   top: 70px;
   width: 70%;
-  height: 50%;
+  height: 42%;
   text-align: left;
   border: 1px solid #000;
 }

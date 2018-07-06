@@ -6,16 +6,17 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/homepage.css" rel="stylesheet">
     <link href="css/nav-bar.css" rel="stylesheet">
-  <style>
+    <style>
 
-  .Room,.room-num{
-    cursor: pointer;
-    transition: 1s;
-  }
-  .room-num:hover{
-    background: #dec096;
-  }
-</style>
+        .Room, .room-num {
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .room-num:hover {
+            background: #dec096;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,8 +24,8 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid nav-center">
         <div class="navbar-header">
-       <!--     <a class="navbar-brand" href="#">学生自助寝室管理系统</a>-->
-            <img  src="img/logo2.jpg">
+            <!--     <a class="navbar-brand" href="#">学生自助寝室管理系统</a>-->
+            <img src="img/logo2.jpg">
         </div>
         <div class="nav-right">
             <ul class="nav navbar-nav">
@@ -38,7 +39,7 @@
                         <li><a href="mydo.html">我的寝室</a></li>
                         <li><a href="message.html">个人信息</a></li>
                         <li><a href="fixNews.html">修改信息</a></li>
-                        
+
                         <li><a href="index.html">退出登录</a></li>
                     </ul>
                 </li>
@@ -55,110 +56,130 @@
     <li id="confirm"><span></span>3.确认</li>
 </ul>
 <main>
-  <!--选择寝室号-->
-  <div class="choose_room">
-    <div id="main-left"></div>
-    <div id="main-right">
-              <form class="form-horizontal" role="form">
+    <!--选择寝室号-->
+    <div class="choose_room">
+        <div id="main-left"></div>
+        <div id="main-right">
+            <form class="form-horizontal" role="form">
                 <div class="form-group">
-                  <label class="col-sm-4 control-label">姓名</label>
-                  <div class="col-sm-8">
-                    <p class="form-control-static name" id="name"></p>
-                  </div>
+                    <label class="col-sm-4 control-label">姓名</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static name" id="name"></p>
+                    </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-4 control-label">学号</label>
-                  <div class="col-sm-8">
-                    <p class="form-control-static stuid" id="stuid"></p>
-                  </div>
+                    <label class="col-sm-4 control-label">学号</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static stuid" id="stuid"></p>
+                    </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-4 control-label">所选寝室</label>
-                  <div class="col-sm-8">
-                    <p class="form-control-static" id="room-num-red"></p>
-                  </div>
+                    <label class="col-sm-4 control-label">所选寝室</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" id="room-num-red"></p>
+                    </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-offset-6 col-sm-12">
-                    <button type="button" class="btn btn-primary" id="select">确定房间</button>
-                    <br>
-                    <!--<span class="error_room_num">你还未选择寝室</span>-->
-                  </div>
-            </div>
-        </form>
-    </div>
-    <div id="main-bottom-left"></div>
-    <ul id="main-bottom-right">
-        <li><img src="img/emptybed.png">可选</li>
-        <li><img src="img/clicked.png">已被选</li>
-        <li><img src="img/doublebed.png">上下铺</li>
-    </ul>
-  </div>
-  <!--选择床位-->
-  <div class="choose_bed">
-      <div id="main-left-next1">
-        <div class="bed-choosed">
-          <div class="Room Bed-choosed"></div>
+                    <div class="col-sm-offset-6 col-sm-12">
+                        <button type="button" class="btn btn-primary" id="select">确定房间</button>
+                        <br>
+                        <!--<span class="error_room_num">你还未选择寝室</span>-->
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-    <div id="main-right-next1">
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
-          <label class="col-sm-4 control-label">姓名</label>
-          <div class="col-sm-8">
-            <p class="form-control-static name"></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-4 control-label">学号</label>
-          <div class="col-sm-8">
-            <p class="form-control-static stuid"></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-4 control-label">所选床位</label>
-          <div class="col-sm-8">
-            <p class="form-control-static" id="room-num-red-next"></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-6 col-sm-12">
-            <button type="button" class="btn btn-primary" id="select-bed">确定床位</button>
-            <br>
-            <!--<span class="error_room_num">你还未选择寝室</span>-->
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-   </div>
-  <!--确认-->
-  <div class="choose_confirm">
-    <div class="affirm_news">
-      <div class="affirm_header">
-        <span>确认寝室信息</span>
-      </div>
-      <div class="affirm_middle">
-        <ul>
-          <li class="sure-one">姓名：<span class="name"></span></li>
-          <li>学号：<span class="stuid"></span></li>
-          <li>寝室号：<span id="dornum"></span></li>
-          <li>你的床位号：<span id="bednum"></span></li>
-          <li>现在已有成员人数：<span id="totalnum"></span></li>
+        <div id="main-bottom-left"></div>
+        <ul id="main-bottom-right">
+            <li><img src="img/emptybed.png">可选</li>
+            <li><img src="img/clicked.png">已被选</li>
+            <li><img src="img/doublebed.png">上下铺</li>
         </ul>
-      </div>
-      <button>确认</button>
     </div>
-  </div>
-  <!--最后跳转到我的寝室页面-->
-  <div class="jump-to-my">
-    页面正在跳转中....
-  </div>
+
+    <!--选择床位-->
+    <div class="choose_bed">
+        <div id="main-left-next1">
+            <div class="bed-choosed">
+                <div class="Room Bed-choosed"></div>
+            </div>
+        </div>
+        <div id="main-right-next1">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">姓名</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static name"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">学号</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static stuid"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">所选床位</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" id="room-num-red-next">还未选床位</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-0 col-sm-12">
+                        <button type="button" class="btn btn-primary" id="two-to-one">返回上页</button>
+                        <button type="button" class="btn btn-primary" id="select-bed">确定床位</button>
+                        <br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--确认-->
+    <div class="choose_confirm">
+        <div class="affirm_news">
+            <div class="affirm_header">
+                <span>确认寝室信息</span>
+            </div>
+            <div class="affirm_middle">
+                <ul>
+                    <li class="sure-one">姓名：<span class="name"></span></li>
+                    <li>学号：<span class="stuid"></span></li>
+                    <li>寝室号：<span id="dornum"></span></li>
+                    <li>你的床位号：<span id="bednum"></span></li>
+                    <li><span id="resetInfo" style="color: red" ></span></li>
+                </ul>
+            </div>
+            <button id="enter">确认</button>
+            <button id="reset">重选</button>
+        </div>
+    </div>
+
+    <!--最后跳转到我的寝室页面-->
+    <div class="jump-to-my">
+        页面正在跳转中....
+    </div>
 </main>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/select-room.js"></script>
 <script type="text/javascript">
+    //新选寝室的人数
+    var dormPeople;
+    //是否已选标准
+    var selectFlag;
+    //若选择了，relation的id
+    var selectId;
+    //若选择了，选择寝室的id
+    var oldDormId;
+    //若选择了，选择寝室的床号
+    var oldBedNumber;
+    //选择寝室的id
+    var newDormId;
+    //选择寝室的床号
+    var newBedNumber;
+    //学生的id
+    var stuId;
+
+    //初始页面加载
     $(function () {
         $(".choose_bed").hide();//选择床位页面阴藏
         $(".choose_confirm").hide();//确认页面阴藏
@@ -166,15 +187,17 @@
 
         //主页验证，是否登录过，安全保障
         $.ajax({
-            url:"/student/userInfo",
-            type:"GET",
-            success:function (result) {
-                if(result.code==0){
+            url: "/student/userInfo",
+            type: "GET",
+            success: function (result) {
+                if (result.code == 0) {
                     //未登录过，跳转到登录界面
-                    location.href="index.html";
-                }else{
+                    location.href = "index.html";
+                } else {
                     //成功登录
-                    
+                    //保存Id
+                    stuId=result.extend.student.stuId;
+
                     //加载学生信息到页面
                     loadInfo(result);
 
@@ -189,10 +212,10 @@
     function to_page(pn) {
         //得到所有寝室信息
         $.ajax({
-            url:"/building/all",
-            type:"GET",
-            data:"pn="+pn,
-            success:function (result) {
+            url: "/building/all",
+            type: "GET",
+            data: "pn=" + pn,
+            success: function (result) {
                 //加载寝室列表
                 loadDorm(result);
 
@@ -204,25 +227,30 @@
 
     //学生相关信息加载到页面
     function loadInfo(result) {
-        $(".name").append(result.extend.student.stuName);
-        $(".stuid").append(result.extend.student.stuCardId);
+        $(".name").empty().append(result.extend.student.stuName);
+        $(".stuid").empty().append(result.extend.student.stuCardId);
         //看当前学生是否已经选择了寝室
         $.ajax({
-            url:"/relation/studorm/"+result.extend.student.stuId,
-            type:"GET",
-            success:function (result1) {
-                if(result1.code==0){
+            url: "/relation/studorm/" + result.extend.student.stuId,
+            type: "GET",
+            success: function (result1) {
+                if (result1.code == 0) {
                     //当前未选中寝室
-                    $("#room-num-red").append("未选寝室");
-                }else{
+                    selectFlag=0;
+                    $("#room-num-red").empty().append("未选寝室");
+                } else {
+                    selectFlag=1;
+                    oldBedNumber=result1.extend.info.bedNum;
+                    selectId=result1.extend.info.relationId;
+                    oldDormId=result1.extend.info.dormId;
                     //得到具体的寝室信息并同步到页面
                     $.ajax({
-                        url:"/building/getdorm/"+result1.extend.dormId,
-                        type:"GET",
-                        success:function (result2) {
+                        url: "/building/getdorm/" + result1.extend.info.dormId,
+                        type: "GET",
+                        success: function (result2) {
                             //同步信息
-                            var dorm=result2.extend.dorm;
-                            $("#room-num-red").append(dorm.buildingNumber+"-"+dorm.dormNumber);
+                            var dorm = result2.extend.dorm;
+                            $("#room-num-red").empty().append(dorm.buildingNumber + "-" + dorm.dormNumber);
                         }
                     });
                 }
@@ -236,60 +264,60 @@
         $("#main-left").empty();
 
         //寝室列表
-        var buildinds=result.extend.pageInfo.list;
-        $.each(buildinds,function (index,item) {
-            var input=$("<input type='text' readonly='readonly' class='room-num'" +
-                " value="+item.buildingNumber+"-"+item.dormNumber+" />");
-            var ul1=$("<ul></ul>").addClass("line-one");
-            if(item.dorm1Bed==1){
+        var buildinds = result.extend.pageInfo.list;
+        $.each(buildinds, function (index, item) {
+            var input = $("<input type='text' readonly='readonly' class='room-num'" +
+                " value=" + item.buildingNumber + "-" + item.dormNumber + " />");
+            var ul1 = $("<ul></ul>").addClass("line-one");
+            if (item.dorm1Bed == 1) {
                 ul1.append($("<li></li>").addClass("clicked"));
-            }else {
+            } else {
                 ul1.append($("<li></li>"));
             }
             ul1.append($("<li></li>")).append($("<li></li>"));
-            if(item.dorm2Bed==1){
+            if (item.dorm2Bed == 1) {
                 ul1.append($("<li></li>").addClass("clicked"));
-            }else {
+            } else {
                 ul1.append($("<li></li>"));
             }
-            var div=$("<div></div>").append(input).append(ul1);
-            var ul2=$("<ul></ul>").addClass("line-two");
-            if(item.dormMaxPeople==2){
+            var div = $("<div></div>").append(input).append(ul1);
+            var ul2 = $("<ul></ul>").addClass("line-two");
+            if (item.dormMaxPeople == 2) {
                 div.addClass("Room Room-two");
                 ul2.append($("<li></li>")).append($("<li></li>")).append($("<li></li>")).append($("<li></li>"));
-            }else if(item.dormMaxPeople==4){
+            } else if (item.dormMaxPeople == 4) {
                 div.addClass("Room Room-four");
-                if(item.dorm3Bed==1){
+                if (item.dorm3Bed == 1) {
                     ul2.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul2.append($("<li></li>"));
                 }
                 ul2.append($("<li></li>")).append($("<li></li>"));
-                if(item.dorm4Bed==1){
+                if (item.dorm4Bed == 1) {
                     ul2.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul2.append($("<li></li>"));
                 }
-            }else{
+            } else {
                 div.addClass("Room Room-six");
-                if(item.dorm3Bed==1){
+                if (item.dorm3Bed == 1) {
                     ul2.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul2.append($("<li></li>"));
                 }
-                if(item.dorm4Bed==1){
+                if (item.dorm4Bed == 1) {
                     ul2.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul2.append($("<li></li>"));
                 }
-                if(item.dorm5Bed==1){
+                if (item.dorm5Bed == 1) {
                     ul2.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul2.append($("<li></li>"));
                 }
-                if(item.dorm6Bed==1){
+                if (item.dorm6Bed == 1) {
                     ul2.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul2.append($("<li></li>"));
                 }
             }
@@ -299,7 +327,7 @@
     }
 
     //加载分页条
-    function build_page_nav(result){
+    function build_page_nav(result) {
         //清空
         $("#main-bottom-left").empty();
 
@@ -351,17 +379,17 @@
     }
 
     //寝室选择
-    $(document).on("click",".Room",function(){
+    $(document).on("click", ".Room", function () {
         var roomnum = $(this).find("input").val();
         $("#room-num-red").text(roomnum);
     });
 
-    //床位选择后，确认点击事件
-    $("#select").click(function(){
+    //寝室选择后，确认点击跳转到床位选择
+    $("#select").click(function () {
         var roommessage = $("#room-num-red").text();
-        if(roommessage == "还未选寝室"){
+        if (roommessage == "还未选寝室") {
             alert("您还未选寝室");
-        }else{
+        } else {
             $("#chooseroom").removeClass("active").addClass("success").find("span").html("<img src='img/greenclick.png'>");//UI改变
             $("#choosebed").addClass("active");
             $(".choose_room").hide();
@@ -374,66 +402,75 @@
 
     //床位选择页面加载床位
     function loadDormInfo(info) {
+        //清空
+        $(".Bed-choosed").empty();
+
         //拿到寝室信息
         $.ajax({
-            url:"building/getbuilding/"+info,
-            type:"GET",
-            success:function (result) {
+            url: "building/getbuilding/" + info,
+            type: "GET",
+            success: function (result) {
                 //更新页面信息
-                var item=result.extend.building;
+                var item = result.extend.building;
 
-                var input=$("<input type='text' readonly='readonly' class='room-num'" +
-                    " value="+item.buildingNumber+"-"+item.dormNumber+" />");
-                var ul1=$("<ul></ul>").addClass("line-one");
-                if(item.dorm1Bed==1){
+                dormPeople=item.dormMaxPeople;
+
+                newDormId=item.dormId;
+
+                var input = $("<input type='text' readonly='readonly' class='room-num'" +
+                    " value=" + item.buildingNumber + "-" + item.dormNumber + " />");
+                var ul1 = $("<ul></ul>").addClass("line-one");
+                if (item.dorm1Bed == 1) {
                     ul1.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul1.append($("<li></li>"));
                 }
                 ul1.append($("<li></li>")).append($("<li></li>"));
-                if(item.dorm2Bed==1){
+                if (item.dorm2Bed == 1) {
                     ul1.append($("<li></li>").addClass("clicked"));
-                }else {
+                } else {
                     ul1.append($("<li></li>"));
                 }
-                var div=$(".Bed-choosed").append(input).append(ul1);
-                var ul2=$("<ul></ul>").addClass("line-two");
-                if(item.dormMaxPeople==2){
+                var div = $(".Bed-choosed").append(input).append(ul1);
+
+                div.removeClass("Room-two Room-four Room-six");
+                var ul2 = $("<ul></ul>").addClass("line-two");
+                if (item.dormMaxPeople == 2) {
                     div.addClass("Room-two");
                     ul2.append($("<li></li>")).append($("<li></li>")).append($("<li></li>")).append($("<li></li>"));
-                }else if(item.dormMaxPeople==4){
+                } else if (item.dormMaxPeople == 4) {
                     div.addClass("Room-four");
-                    if(item.dorm3Bed==1){
+                    if (item.dorm3Bed == 1) {
                         ul2.append($("<li></li>").addClass("clicked"));
-                    }else {
+                    } else {
                         ul2.append($("<li></li>"));
                     }
                     ul2.append($("<li></li>")).append($("<li></li>"));
-                    if(item.dorm4Bed==1){
+                    if (item.dorm4Bed == 1) {
                         ul2.append($("<li></li>").addClass("clicked"));
-                    }else {
+                    } else {
                         ul2.append($("<li></li>"));
                     }
-                }else{
+                } else {
                     div.addClass("Room-six");
-                    if(item.dorm3Bed==1){
+                    if (item.dorm3Bed == 1) {
                         ul2.append($("<li></li>").addClass("clicked"));
-                    }else {
+                    } else {
                         ul2.append($("<li></li>"));
                     }
-                    if(item.dorm4Bed==1){
+                    if (item.dorm4Bed == 1) {
                         ul2.append($("<li></li>").addClass("clicked"));
-                    }else {
+                    } else {
                         ul2.append($("<li></li>"));
                     }
-                    if(item.dorm5Bed==1){
+                    if (item.dorm5Bed == 1) {
                         ul2.append($("<li></li>").addClass("clicked"));
-                    }else {
+                    } else {
                         ul2.append($("<li></li>"));
                     }
-                    if(item.dorm6Bed==1){
+                    if (item.dorm6Bed == 1) {
                         ul2.append($("<li></li>").addClass("clicked"));
-                    }else {
+                    } else {
                         ul2.append($("<li></li>"));
                     }
                 }
@@ -442,21 +479,124 @@
         });
     }
 
-    //确认信息页面,床位点击事件
-    $(document).on("click",".Bed-choosed>ul>li",function () {
-        if($(this).hasClass("clicked")){
+    //选择床位页面,床位点击事件
+    $(document).on("click", ".Bed-choosed>ul>li", function () {
+        if ($(this).hasClass("clicked")) {
             alert("该床位已有人！");
         }
         else {
             if (confirm("确认选择此床位？")) {
+                var bed = $("#room-num-red-next").text();
+                if (bed !== "") {
+                    var numbed = bed.substring(6, 7);
+                    if (numbed === "1") {
+                        $(".Bed-choosed").find("ul:eq(0)").find("li:eq(0)").removeClass("clicked");
+                    } else if (numbed === "2") {
+                        $(".Bed-choosed").find("ul:eq(0)").find("li:eq(3)").removeClass("clicked");
+                    } else if (numbed === "4" && dormPeople==4){
+                        $(".Bed-choosed").find("ul:eq(1)").find("li:eq(3)").removeClass("clicked");
+                    } else {
+                        $(".Bed-choosed").find("ul:eq(1)").find("li:eq(" + (parseInt(numbed) - 3) + ")").removeClass("clicked");
+                    }
+                }
+
                 $(this).addClass("clicked");
-                var num=($(this).parents().index()-1)*2+$(this).index()+1;
-                if($(this).parents().index()==1&&$(this).index()==3){
-                    num=2;
+                var num = ($(this).parents().index() - 1) * 2 + $(this).index() + 1;
+                if ($(this).parents().index() == 1 && $(this).index() == 3) {
+                    num = 2;
+                }
+                if ($(this).parents().index() == 2 && $(this).index() == 3 && dormPeople==4) {
+                    num = 4;
                 }
                 $("#room-num-red-next").html("你所选床号为" + num);
             }
         }
+    });
+
+    //第二页返回第一页按钮的点击
+    $("#two-to-one").click(function () {
+        //清空当前已经选择的床号
+        $("#room-num-red-next").text("");
+
+        //隐藏当前，回显前一个
+        $("#choosebed").removeClass("active");
+        $("#chooseroom").removeClass("success").addClass("active").find("span").html("");
+        $(".choose_bed").hide();
+        $(".choose_room").show();
+    });
+
+    //床位选择后，确认点击事件
+    $("#select-bed").click(function(){
+        var roommessage = $("#room-num-red-next").text();
+        if(roommessage == "还未选床位"){
+            alert("您还未选床位");
+        }
+        else{
+            //确认栏信息补充完
+            $("#dornum").empty().append($("#room-num-red").text());
+            $("#bednum").empty().append($("#room-num-red-next").text().substring(6,7)+"号");
+            newBedNumber=parseInt($("#room-num-red-next").text().substring(6,7));
+
+            if(selectFlag===1){
+                //如果之前已经选择过，加一个提醒
+                $("#resetInfo").empty().append("点击确认将会取消您之前的选择的寝室");
+            }
+
+            $("#choosebed").removeClass("active").addClass("success").find("span").html("<img src='img/greenclick.png'>");
+            $("#confirm").addClass("active");
+            $(".choose_bed").hide();
+            $(".choose_confirm").show();
+        }
+    });
+
+    //信息确认页面重选按钮点击
+    $("#reset").click(function (){
+        //回去重选
+        location.href="homepage.html";
+    });
+
+    //信息确认页面确认按钮点击
+    $("#enter").click(function () {
+        //框逻辑切换
+        $("#confirm").removeClass("active").addClass("success").find("span").html("<img src='img/greenclick.png'>");
+        $(".choose_confirm").hide();
+        $(".jump-to-my").show();
+
+        //如果之前选过发ajax请求删除相关数据
+        if(selectFlag===1){
+            //寝室与学生关联删除
+            $.ajax({
+                url:"/relation/delete/"+selectId,
+                type:"DELETE",
+                success:function (result) {}
+            });
+
+            //旧寝室旧状态修改
+            $.ajax({
+                url:"/building/cancel/"+oldDormId+"-"+oldBedNumber,
+                type:"PUT",
+                success:function (result) {}
+            });
+        }
+
+        //发ajax请求保存新的数据
+        //寝室状态的修改
+        $.ajax({
+            url:"/building/pick/"+newDormId+"-"+newBedNumber,
+            type:"PUT",
+            success:function (result) {}
+        });
+
+        //寝室与人员状态的建立
+        $.ajax({
+            url:"/relation/add/"+newDormId+"-"+stuId+"-"+newBedNumber,
+            type:"POST",
+            success:function (result) {}
+        });
+
+       /* var timer=setInterval( function(){
+            location.href="mydo.html"
+        },1000)*/
     });
 </script>
 </body>

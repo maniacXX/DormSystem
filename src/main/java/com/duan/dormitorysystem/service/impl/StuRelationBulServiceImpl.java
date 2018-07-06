@@ -36,4 +36,20 @@ public class StuRelationBulServiceImpl implements StuRelationBulService{
         }
 
     }
+
+    /**
+     * 删除
+     * @param id 主键
+     */
+    public void deleteById(long id) {
+        stuRelationBulMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 新增
+     * @param stuRelationBul 新增的对象
+     */
+    public void add(StuRelationBul stuRelationBul) {
+        stuRelationBulMapper.insertSelective(stuRelationBul);
+    }
 }

@@ -33,7 +33,6 @@ public class StudentController {
     @ResponseBody
     public Msg loginCheck(@PathVariable("message") String message, HttpSession session){
         String[] info=message.split("-");
-        System.out.println(info[0]+"  "+info[1]);
         Student student=studentService.adminCheck(info[0]);
         if (student!=null){
             if(student.getStuPassword().equals(info[1])) {

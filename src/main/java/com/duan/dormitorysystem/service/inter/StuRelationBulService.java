@@ -9,4 +9,15 @@ public interface StuRelationBulService {
      * @return
      */
     public StuRelationBul getInfoByStuId(long stuId);
+
+    /**
+     * 删除关系
+     */
+    public void deleteById(long id);
+
+    /**
+     * 新增
+     * @param stuRelationBul 新增的对象
+     */
+    void add(StuRelationBul stuRelationBul);
 }

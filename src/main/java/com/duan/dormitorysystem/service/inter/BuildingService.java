@@ -26,4 +26,16 @@ public interface BuildingService {
      * @return 寝室对象
      */
     public Building getDormByinfo(String buildingNum, String dormNum);
+
+    /**
+     * 寝室床位状态置零
+     * @param building 寝室对象
+     */
+    void cancel(Building building);
+
+    /**
+     * 寝室床位状态置一
+     * @param building 寝室对象
+     */
+    void pick(Building building);
 }

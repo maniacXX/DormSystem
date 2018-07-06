@@ -50,4 +50,24 @@ public class BuildingServiceImpl implements BuildingService{
         criteria.andDormNumberEqualTo(dormNum);
         return buildingMapper.selectByExample(buildingExample).get(0);
     }
+
+    /**
+     * 寝室床位状态置零
+     * @param building 寝室对象
+     */
+    public void cancel(Building building) {
+        int currentNum=buildingMapper.selectByPrimaryKey(building.getDormId()).getDormCurrentPeople();
+        building.setDormCurrentPeople((byte)(currentNum-1));
+        buildingMapper.updateByPrimaryKeySelective(building);
+    }
+
+    /**
+     * 寝室床位状态置零
+     * @param building 寝室对象
+     */
+    public void pick(Building building) {
+        int currentNum=buildingMapper.selectByPrimaryKey(building.getDormId()).getDormCurrentPeople();
+        building.setDormCurrentPeople((byte)(currentNum+1));
+        buildingMapper.updateByPrimaryKeySelective(building);
+    }
 }
