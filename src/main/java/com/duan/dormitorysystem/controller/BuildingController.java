@@ -9,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.duan.dormitorysystem.bean.Msg;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Duan
@@ -98,14 +101,14 @@ public class BuildingController {
     }
 
     /**
-     * 寝室床位状态置一
+     * 寝室床位状态置一并保存信息到session
      *
      * @param info 寝室号-床位号
      * @return
      */
     @RequestMapping(value = "/pick/{info}", method = RequestMethod.PUT)
     @ResponseBody
-    public Msg pickBed(@PathVariable("info") String info) {
+    public Msg pickBed(@PathVariable("info") String info, HttpSession session) {
         String[] infos = info.split("-");
         Building building = new Building();
         building.setDormId(Long.parseLong(infos[0]));
@@ -123,6 +126,8 @@ public class BuildingController {
             building.setDorm6Bed((byte) 1);
         }
         buildingService.pick(building);
+
         return Msg.success();
     }
+
 }

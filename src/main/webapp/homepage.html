@@ -36,10 +36,8 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="mydo.html">我的寝室</a></li>
+                        <li><a id="myDorm">我的寝室</a></li>
                         <li><a href="message.html">个人信息</a></li>
-                        <li><a href="fixNews.html">修改信息</a></li>
-
                         <li><a href="index.html">退出登录</a></li>
                     </ul>
                 </li>
@@ -584,19 +582,27 @@
         $.ajax({
             url:"/building/pick/"+newDormId+"-"+newBedNumber,
             type:"PUT",
-            success:function (result) {}
+            success:function (result) {
+                //寝室与人员状态的建立
+                $.ajax({
+                    url:"/relation/add/"+newDormId+"-"+stuId+"-"+newBedNumber,
+                    type:"GET",
+                    success:function (result1) {
+                        location.href="mydo.html";
+                    }
+                });
+            }
         });
+    });
 
-        //寝室与人员状态的建立
-        $.ajax({
-            url:"/relation/add/"+newDormId+"-"+stuId+"-"+newBedNumber,
-            type:"POST",
-            success:function (result) {}
-        });
-
-       /* var timer=setInterval( function(){
-            location.href="mydo.html"
-        },1000)*/
+    //我的寝室点击
+    $("#myDorm").click(function () {
+        if(selectFlag==0){
+            alert("请先选择寝室！");
+            return false;
+        }else {
+            location.href="mydo.html";
+        }
     });
 </script>
 </body>

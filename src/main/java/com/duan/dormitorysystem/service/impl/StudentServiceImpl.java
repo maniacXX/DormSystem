@@ -35,4 +35,13 @@ public class StudentServiceImpl implements StudentService{
             return students.get(0);
         }
     }
+
+    /**
+     * 通过学生id得到学生信息
+     * @param stuId 学生id
+     * @return 学生信息
+     */
+    public Student getInfoById(Long stuId) {
+        return studentMapper.selectByPrimaryKey(stuId);
+    }
 }

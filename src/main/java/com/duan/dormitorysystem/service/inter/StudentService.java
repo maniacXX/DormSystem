@@ -10,4 +10,11 @@ public interface StudentService {
      * @return 密码
      */
     Student adminCheck(String admin);
+
+    /**
+     * 通过学生id得到学生信息
+     * @param stuId 学生id
+     * @return 学生信息
+     */
+    Student getInfoById(Long stuId);
 }

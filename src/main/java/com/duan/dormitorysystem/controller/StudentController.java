@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Duan
@@ -59,5 +61,23 @@ public class StudentController {
         }else {
             return Msg.success().add("student",session.getAttribute("user"));
         }
+    }
+
+    /**
+     * 通过学生id得到学生信息
+     * @param stuIds 学生id串
+     * @return 学生信息
+     */
+    @RequestMapping(value = "/gets/{stuIds}",method = RequestMethod.GET)
+    @ResponseBody
+    public Msg getInfoByIds(@PathVariable("stuIds") String stuIds){
+        String[] stuId=stuIds.split("-");
+        List<Student> students=new ArrayList<Student>();
+        for(int i=0;i<stuId.length;i++){
+           students.add(studentService.getInfoById(Long.parseLong(stuId[i])));
+        }
+        Student[] students1=new Student[students.size()];
+        students.toArray(students1);
+        return Msg.success().add("students",students1);
     }
 }

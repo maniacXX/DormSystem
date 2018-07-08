@@ -67,13 +67,24 @@
 <script src="js/bootstrap.min.js"></script>
 <script>
 	$(function(){
+        //主页验证，是否登录过，安全保障
+        $.ajax({
+            url: "/student/userInfo",
+            type: "GET",
+            success: function (result) {
+                if (result.code == 0) {
+                    //未登录过，跳转到登录界面
+                    location.href = "index.html";
+                }
+            }
+        });
+
 		setInterval(function(){
 			if(confirm("是否离开此网页？")){
 				location.href="mydo.html";
 			}
-		},3000)
-		
-		
+		},3000);
+
 	});
 </script>
 </body>

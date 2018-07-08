@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Type;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Duan
@@ -23,6 +24,11 @@ public class StuRelationBulController {
     @Autowired
     StuRelationBulService stuRelationBulService;
 
+    /**
+     * 通过学生id获得学生与寝室的关联信息
+     * @param stuId
+     * @return
+     */
     @RequestMapping(value = "/studorm/{stuId}")
     @ResponseBody
     public Msg getInfoByStuId(@PathVariable("stuId") long stuId){
@@ -34,6 +40,7 @@ public class StuRelationBulController {
             return Msg.success().add("info",info);
         }
     }
+
 
     /**
      * 删除
@@ -52,7 +59,7 @@ public class StuRelationBulController {
      * @param info 信息
      * @return
      */
-    @RequestMapping(value = "/add/{info}",method = RequestMethod.POST)
+    @RequestMapping(value = "/add/{info}",method = RequestMethod.GET)
     @ResponseBody
     public Msg add(@PathVariable("info") String info){
         String[] infos=info.split("-");
@@ -64,5 +71,21 @@ public class StuRelationBulController {
         stuRelationBul.setGmtModified(new Date());
         stuRelationBulService.add(stuRelationBul);
         return Msg.success();
+    }
+
+
+    /**
+     * 通过寝室id获得学生与寝室的关联信息
+     * @param dormId 寝室号
+     * @return
+     */
+    @RequestMapping(value = "/getInfos/{dormId}")
+    @ResponseBody
+    public Msg getInfoByDormId(@PathVariable("dormId") long dormId){
+        List<StuRelationBul> list=stuRelationBulService.getInfoByDormId(dormId);
+        
+        StuRelationBul[] SRBs = new StuRelationBul[list.size()];
+        list.toArray(SRBs);
+        return Msg.success().add("SRBs",SRBs).add("arrLength",SRBs.length);
     }
 }

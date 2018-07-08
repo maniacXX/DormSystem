@@ -6,80 +6,87 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/homepage.css" rel="stylesheet">
     <link href="css/nav-bar.css" rel="stylesheet">
-  <style>
-  	body{
-  		margin: 0;
-  		padding: 0;
-  		position: relative;
-  	}
-.font-My-home{
-      position: absolute;
-      height: 73px;
-      width: 600px;
-      font-size: 32px;
-      line-height: 73px;
-      text-align: center;
-      color: rgb(16,45,105);
-      left: 260px;
-      top: 0;
-      font-weight: 700;
-      font-family:"仿宋";
-    }
-    .dormitory-body{
-    	width: 1150px;
-    	height: 598px;
-    	position: absolute;
-    	top: 74px;
-    	left: 100px;
-    	border: 1px solid #ccc;
-    }
-    /*左部*/
-    .Dbody-left{
-    	position: absolute;
-    	width:450px ;
-    	height: 595px;
-    	left: 5px;
-    	top: 0px;
-    	border-right: 1px solid #CCCCCC;
-    }
-    .Dbody-left-top{
-    	position: absolute;
-    	width: 440px;
-    	height: 50px;
-    	font-family: "franklin gothic medium";
-    	left: 5px;
-    	top: 5px;
-    	border: 1px solid #ccc;
-    	font-size: 40px;
-    	line-height: 50px;
-    	text-align: center;
-    }
-    .Dbody-left-middle{   
-    	position: absolute;
-      width: 188px;
-    height: 244px;
-    left: 133px;
-    top: 110px;
-    	border: 1px solid #CCCCCC;	
-    }
-    .Dbody-left-bottom{
-    	position: absolute;
-    	width:440px ;
-    	height: 120px;
-    	left: 5px;
-    	bottom: 5px;
-    	border: 1px solid #CCCCCC;
-    }
-    /*右部*/
-   .Dbody-right{
-   	position: absolute;
-   	width: 600px;
-   	height: 598px;
-   	border-left: 1px solid #ccc;
-   	right: 5px;
-   	top: 0px;
-   }
-</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .font-My-home {
+            position: absolute;
+            height: 73px;
+            width: 600px;
+            font-size: 32px;
+            line-height: 73px;
+            text-align: center;
+            color: rgb(16, 45, 105);
+            left: 260px;
+            top: 0;
+            font-weight: 700;
+            font-family: "仿宋";
+        }
+
+        .dormitory-body {
+            width: 1150px;
+            height: 598px;
+            position: absolute;
+            top: 74px;
+            left: 100px;
+            border: 1px solid #ccc;
+        }
+
+        /*左部*/
+        .Dbody-left {
+            position: absolute;
+            width: 450px;
+            height: 595px;
+            left: 5px;
+            top: 0px;
+            border-right: 1px solid #CCCCCC;
+        }
+
+        .Dbody-left-top {
+            position: absolute;
+            width: 440px;
+            height: 50px;
+            font-family: "franklin gothic medium";
+            left: 5px;
+            top: 5px;
+            border: 1px solid #ccc;
+            font-size: 40px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .Dbody-left-middle {
+            position: absolute;
+            width: 188px;
+            height: 244px;
+            left: 133px;
+            top: 110px;
+            border: 1px solid #CCCCCC;
+        }
+
+        .Dbody-left-bottom {
+            position: absolute;
+            width: 440px;
+            height: 120px;
+            left: 5px;
+            bottom: 5px;
+            border: 1px solid #CCCCCC;
+        }
+
+        /*右部*/
+        .Dbody-right {
+            position: absolute;
+            width: 600px;
+            height: 598px;
+            border-left: 1px solid #ccc;
+            right: 5px;
+            top: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -87,8 +94,8 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid nav-center">
         <div class="navbar-header">
-       <!--     <a class="navbar-brand" href="#">学生自助寝室管理系统</a>-->
-            <img  src="img/logo1.jpg">
+            <!--     <a class="navbar-brand" href="#">学生自助寝室管理系统</a>-->
+            <img src="img/logo1.jpg">
         </div>
         <div class="nav-right">
             <ul class="nav navbar-nav">
@@ -101,7 +108,6 @@
                     <ul class="dropdown-menu">
                         <li><a href="mydo.html">我的寝室</a></li>
                         <li><a href="message.html">个人信息</a></li>
-                        <li><a href="fixNews.html">修改信息</a></li>
                         <li><a href="index.html">退出登录</a></li>
                     </ul>
                 </li>
@@ -110,78 +116,38 @@
         </div>
     </div>
 </nav>
- <span class="font-My-home">我的寝室</span>
+<span class="font-My-home">我的寝室</span>
+
+<!--主体-->
 <div class="dormitory-body">
-	<div class="Dbody-left">
-		<div class="Dbody-left-top"><span>Dormitory</span></div>
-		<div class="Dbody-left-middle">
-			<div class="Room Room-six">
-            <input type="text" readonly="readonly" class="room-num" value="xx-xxx">
-            <ul class="line-one">
-              <li class="clicked"></li>
-              <li></li>
-              <li></li>
-              <li class="clicked"></li>
-            </ul>
-            <ul class="line-two">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-		</div>
-		<div class="Dbody-left-bottom">
-			友情链接：
-			<br />
-			<a href="http://www.swpu.edu.cn/">西南石油大学官网</a>
-			<br />
-			<a href="http://www.swpu.edu.cn/dean/">西南石油大学教务处</a>
-		</div>
-	</div>	
-	<div class="Dbody-right">
-		<ul>
-			<li>室友1
-				<ul>
-					<li>姓名：</li>
-					<li>学号：</li>
-					<li>邮箱：</li>
-				</ul>
-			</li><hr />
-			<li>室友2
-				<ul>
-					<li>姓名：</li>
-					<li>学号：</li>
-					<li>邮箱：</li>
-				</ul>
-			</li><hr />
-			<li>室友3
-					<ul>
-						<li>姓名：</li>
-						<li>学号：</li>
-						<li>邮箱：</li>
-				</ul>
-			</li><hr />
-			<li>室友4
-					<ul>
-						<li>姓名：</li>
-						<li>学号：</li>
-						<li>邮箱：</li>
-				</ul>
-			</li><hr />
-			<li>室友5
-					<ul>
-						<li>姓名：</li>
-						<li>学号：</li>
-						<li>邮箱：</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+
+    <!--左边部分-->
+    <div class="Dbody-left">
+        <!--寝室选择状态图-->
+        <div class="Dbody-left-top"><span>Dormitory</span></div>
+        <div class="Dbody-left-middle">
+            <div id="room-info" class="Room">
+            </div>
+        </div>
+
+        <!--友情链接-->
+        <div class="Dbody-left-bottom">
+            友情链接：
+            <br/>
+            <a href="http://www.swpu.edu.cn/">西南石油大学官网</a>
+            <br/>
+            <a href="http://www.swpu.edu.cn/dean/">西南石油大学教务处</a>
+        </div>
+    </div>
+
+    <!--室友信息-->
+    <div class="Dbody-right">
+    </div>
 </div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    //初始加载
     $(function () {
         //主页验证，是否登录过，安全保障
         $.ajax({
@@ -193,19 +159,164 @@
                     location.href = "index.html";
                 } else {
                     //成功登录
-                    //保存Id
-                    stuId=result.extend.student.stuId;
+                    //查询学生的寝室信息
+                    $.ajax({
+                        url: "/relation/studorm/" + result.extend.student.stuId,
+                        type: "GET",
+                        success: function (result1) {
+                            if (result1.code == 0) {
+                            } else {
+                                //得到具体的寝室信息并同步到页面
+                                $.ajax({
+                                    url: "/building/getdorm/" + result1.extend.info.dormId,
+                                    type: "GET",
+                                    success: function (result2) {
+                                        //同步信息
+                                        var dorm = result2.extend.dorm;
 
-                    //加载学生信息到页面
-                    loadInfo(result);
+                                        loadDormInfo(dorm);
 
-                    //寝室列表的加载
-                    to_page(1);
+                                        loadFrenidInfo(dorm, result1.extend.info.bedNum);
+                                    }
+                                });
+                            }
+                        }
+                    });
                 }
             }
         });
     });
 
+    //寝室加载
+    function loadDormInfo(item) {
+
+        var input = $("<input type='text' readonly='readonly' class='room-num'" +
+            " value=" + item.buildingNumber + "-" + item.dormNumber + " />");
+        var ul1 = $("<ul></ul>").addClass("line-one");
+        if (item.dorm1Bed == 1) {
+            ul1.append($("<li></li>").addClass("clicked"));
+        } else {
+            ul1.append($("<li></li>"));
+        }
+        ul1.append($("<li></li>")).append($("<li></li>"));
+        if (item.dorm2Bed == 1) {
+            ul1.append($("<li></li>").addClass("clicked"));
+        } else {
+            ul1.append($("<li></li>"));
+        }
+        var div = $("#room-info").empty().append(input).append(ul1);
+
+        div.removeClass("Room-two Room-four Room-six");
+        var ul2 = $("<ul></ul>").addClass("line-two");
+        if (item.dormMaxPeople == 2) {
+            div.addClass("Room-two");
+            ul2.append($("<li></li>")).append($("<li></li>")).append($("<li></li>")).append($("<li></li>"));
+        } else if (item.dormMaxPeople == 4) {
+            div.addClass("Room-four");
+            if (item.dorm3Bed == 1) {
+                ul2.append($("<li></li>").addClass("clicked"));
+            } else {
+                ul2.append($("<li></li>"));
+            }
+            ul2.append($("<li></li>")).append($("<li></li>"));
+            if (item.dorm4Bed == 1) {
+                ul2.append($("<li></li>").addClass("clicked"));
+            } else {
+                ul2.append($("<li></li>"));
+            }
+        } else {
+            div.addClass("Room-six");
+            if (item.dorm3Bed == 1) {
+                ul2.append($("<li></li>").addClass("clicked"));
+            } else {
+                ul2.append($("<li></li>"));
+            }
+            if (item.dorm4Bed == 1) {
+                ul2.append($("<li></li>").addClass("clicked"));
+            } else {
+                ul2.append($("<li></li>"));
+            }
+            if (item.dorm5Bed == 1) {
+                ul2.append($("<li></li>").addClass("clicked"));
+            } else {
+                ul2.append($("<li></li>"));
+            }
+            if (item.dorm6Bed == 1) {
+                ul2.append($("<li></li>").addClass("clicked"));
+            } else {
+                ul2.append($("<li></li>"));
+            }
+        }
+        div.append(ul2);
+    }
+
+    //室友信息加载
+    function loadFrenidInfo(dorm, bedNum) {
+        //查询函数返回的该寝室人员信息
+        $.ajax({
+            url: "/relation/getInfos/" + dorm.dormId,
+            type: "GET",
+            success: function (result) {
+                //信息排版构建
+                var SRBs = result.extend.SRBs;
+                var length = result.extend.arrLength;
+                var info = "";
+                for (var i = 0; i < length; i++) {
+                    info += SRBs[i].stuId + "-";
+                }
+                info = info.substring(0, info.length - 1);
+
+                //发请求一次性拿到所有的学生信息
+                $.ajax({
+                    url: "/student/gets/" + info,
+                    type: "GET",
+                    success: function (result1) {
+                        //学生信息
+                        var students = result1.extend.students;
+                        var flag=0;
+
+                        //将室友信息添加进去
+                        var ul = $("<ul></ul>");
+                        for (var i = 1; i <= 6; i++) {
+                            if (bedNum === i) {//为当前登录学生的床位
+                                ul.append(
+                                    $("<li></li>").append(bedNum + "号床").append(
+                                        $("<ul></ul>").append($("<li>您的位置</li>"))
+                                            .append($("<li> </li>")).append($("<li> </li>"))
+                                    )
+                                ).append($("<hr/>"));
+                            } else {
+                                flag = 0;
+                                for (var j = 0; j < length; j++) {
+                                    if (i === parseInt(SRBs[j].bedNum)) {//这个床位有人
+                                        flag = 1;
+                                        bed = SRBs[j].bedNum;
+                                        var stu = students[j];
+                                        ul.append(
+                                            $("<li></li>").append(bed + "号床").append(
+                                                $("<ul></ul>").append($("<li></li>").append("姓名：" + stu.stuName)).append($("<li></li>").append("学号：" + stu.stuCardId)).append($("<li></li>").append("邮箱：" + stu.stuEmail))
+                                            )
+                                        ).append($("<hr/>"));
+                                    }
+                                }
+                                if (flag === 0) {//这个床位没有人
+                                    ul.append(
+                                        $("<li></li>").append(i + "号床").append(
+                                            $("<ul></ul>").append($("<li></li>").append("暂时无人选择")).append($("<li></li>")).append($("<li></li>"))
+                                        )
+                                    ).append($("<hr/>"));
+                                }
+                            }
+                            if (dorm.dormMaxPeople === i) {
+                                break;//人数够了以后结束
+                            }
+                        }
+                        $(".Dbody-right").empty().append(ul);
+                    }
+                });
+            }
+        });
+    }
 </script>
 </body>
 </html>
