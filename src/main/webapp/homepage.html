@@ -227,6 +227,7 @@
     function loadInfo(result) {
         $(".name").empty().append(result.extend.student.stuName);
         $(".stuid").empty().append(result.extend.student.stuCardId);
+
         //看当前学生是否已经选择了寝室
         $.ajax({
             url: "/relation/studorm/" + result.extend.student.stuId,
