@@ -6,32 +6,81 @@
     position: fixed;
     top:0;
     width: 100%;
-    background-color: rgba(128,128,128,0.5);
+    height: 70px;
+    background-color: #8FBC8F;
     z-index: 999;
     border: none;
 }
 
+#top-nav {
+    position: relative;
+    left: 22px;
+}
+#top-nav li,#top-nav a,#top-bar .dropdown .name{
+    height: 70px;
+}
+.dropdown-menu,.dropdown-menu li,.dropdown-menu li a{
+    height: 50px;
+}
+.dropdown-menu li a:hover{
+    height: 38px;
+}
+#top-nav li {
+      width: 100px;
+      text-align: center;
+  }
+#top-nav li:hover,.active-li{
+    background-color: #F5FFFA;
+    color: #333;
+}
+
+
+#top-nav li a,#top-bar li a{
+    line-height: 35px;
+}
+
+
 #left-bar{
     position: fixed;
-    width: 20%;
-    min-width: 200px;
+    width:240px;
     height: 100%;
     left: 0;
     top:0;
-    background-color: #8FBC8F;
+    background-color: #F0FFF0;
 }
-#logo{
+.logo{
     position: relative;
-    top:60px;
-    height: 116px;
-    width: 100%;
-    margin:0 0 20px 0;
+    margin:auto;
 }
-#logo img{
-    width: 80%;
-    margin:0 10%;
+.logo img{
+     width:200px;
+ }
+.hidden-xs .logo{
+    top:10px;
+    width:200px;
+}
+.visible-xs .logo{
+    top:-5px;
+}
+.visible-xs .navbar-header button{
+    position: relative;
+    top:10px;
+    background-color: #ffffff;
+}
+#xs-nav{
+    position: relative;
+    top:20px;
+    background-color: #ffffff;
+}
+#xs-nav li:hover{
+    background-color: #d3d3d3;
+}
+#xs-nav{
+    border-bottom: 1px solid #9d9d9d;
 }
 #nav{
+    position: relative;
+    top:70px;
     width: 100%;
     padding: 0;
 }
@@ -40,10 +89,18 @@
     position: relative;
     height: 50px;
     line-height: 50px;
-    font-size: 20px;
-    color: white;
+    font-size: 18px;
     text-align: center;
 }
 #nav li:hover{
-    background-color: #228B22;
+    background-color:	#2E8B57;
+    color: #fff;
+}
+#center{
+    position: relative;
+    top:80px;
+}
+#room-admin td{
+    line-height: 40px;
+    font-size: 16px;
 }

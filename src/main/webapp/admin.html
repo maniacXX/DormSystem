@@ -3,36 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <title>寝室管理系统——管理员</title>
-    <link href="css/admin.css" rel="stylesheet">
     <link href="css/bootstrap.min.css"  rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
 </head>
 
 <body>
 <div id="top-bar"  class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="hidden-xs">
+            <div class="navbar-header">
+                <div class="logo"><img src="img/white-logo.png"></div>
+            </div>
+            <ul class="nav navbar-nav" id="top-nav">
+                <li class="active-li" id="nav-room">
+                    <a href="#">
+                       房间管理
+                    </a>
+                </li>
+                <li id="nav-stu">
+                    <a href="#">
+                        学生管理
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle name" data-toggle="dropdown">
+                        陈二狗<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="visible-xs">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#xs-nav">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo" href="#"><img src="img/white-logo.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="xs-nav">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="#">房间管理</a></li>
+                    <li role="presentation"><a href="#">学生管理</a></li>
+                    <li role="presentation" class="divider">
 
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    陈二狗<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">退出</a></li>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">退出</a>
+                    </li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="left-bar" >
-    <div id="logo"><img src="img/white-logo.png"></div>
-    <hr>
-    <ul id="nav">
-        <li>房间管理</li>
-        <li>寝室安排导出</li>
-    </ul>
-</div>
-<div id="container">
 
+<!--<div id="left-bar" >
+    <ul id="nav">
+        <li>查找</li>
+        <li>增加</li>
+        <li>删除</li>
+        <li>修改</li>
+    </ul>
+</div>-->
+<div id="center" class="container">
+    <div id="AdminBlock">
+        <form role="form" class="form-horizontal">
+            <div class="form-group ">
+                <label for="unit" class="col-sm-1 control-label">楼栋</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="unit">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+                <label for="floors" class="col-sm-1 control-label">楼层</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="floors">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+                <label for="college" class="col-sm-1 control-label">学院</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="college">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+                <label for="major" class="col-sm-1 control-label">专业</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="major">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group pull-right">
+                <button type="button" class="btn btn-default" id="search">搜索</button>
+                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addRoomModal">新增</button>
+                <button type="button" class="btn btn-danger" id="batch-delete">批量删除</button>
+            </div>
+            <!--添加模态框-->
+            <div class="modal fade" id="addRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">添加房间</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="add-unit" class="col-sm-3 control-label">楼栋</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="add-unit" class="form-control"  placeholder="例：1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="add-floor" class="col-sm-3 control-label">楼层</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="add-floor" class="form-control"  placeholder="例：1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">房间号</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="add-room-start" class="form-control" placeholder="起始房间号">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="add-room-end" class="form-control" placeholder="末尾房间号">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="add-num" class="col-sm-3 control-label">可容纳人数</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="add-num" class="form-control"  placeholder="例：1">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">添加</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </form>
+            <!--<table class="table table-hover" id="room-admin">
+                <thead>
+                <tr>
+                    <th>楼栋</th>
+                    <th>楼层</th>
+                    <th>房间号</th>
+                    <th>居住情况</th>
+                    <th>成员</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>102</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>103</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>104</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>--> <!--房间管理表-->
+
+            <table class="table table-hover" id="room-admin">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" id="check-all"/></th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                    <th>寝室</th>
+                    <th>床号</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>102</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>103</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>104</td>
+                    <td>3/6</td>
+                    <td>陈猪猪、徐高高、骚渐渐</td>
+                    <td>
+                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table><!--学生管理表-->
+        <div class="row">
+           共<span id="all-page">1</span>页,<span id="all-num">1</span>条记录
+        </div>
+        <div class="row text-center">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+        <div class="row pull-right" id="del-btns">
+            <button class="btn btn-default" id="cancle-delete">取消</button>
+            <button class="btn btn-danger" id="confirm-delete">确认删除</button>
+        </div>
+
+
+<!--修改房间模态框-->
+        <div class="modal fade" id="reviseRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">修改房间</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="add-unit" class="col-sm-3 control-label">楼栋</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-unit" class="form-control"  placeholder="例：1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-floor" class="col-sm-3 control-label">楼层</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-floor" class="form-control"  placeholder="例：1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">房间号</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-room" class="form-control" placeholder="起始房间号">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-num" class="col-sm-3 control-label">可容纳人数</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-num" class="form-control"  placeholder="例：1">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">修改</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <!--修改学生信息模态框-->
+        <div class="modal fade" id="reviseStuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">修改学生寝室</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">寝室</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-stu-room" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-num" class="col-sm-3 control-label">床号</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-stu-bed" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">修改</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
 </div>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/admin.js"></script>
 </html>
