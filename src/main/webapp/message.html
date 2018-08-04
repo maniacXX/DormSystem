@@ -7,27 +7,6 @@
     <link href="css/homepage.css" rel="stylesheet">
     <link href="css/nav-bar.css" rel="stylesheet">
     <link href="css/message.css" rel="stylesheet">
-    <style>
-        .error_choose {
-            display: none;
-            color: red;
-            font-size: 10px;
-        }
-
-        .font-My-home {
-            position: absolute;
-            height: 73px;
-            width: 600px;
-            font-size: 32px;
-            line-height: 73px;
-            text-align: center;
-            color: rgb(16, 45, 105);
-            left: 260px;
-            top: 0;
-            font-weight: 700;
-            font-family: "仿宋";
-        }
-    </style>
 </head>
 <body>
 <!--导航栏-->
@@ -35,28 +14,27 @@
     <div class="container-fluid nav-center">
         <div class="navbar-header">
             <!--     <a class="navbar-brand" href="#">学生自助寝室管理系统</a>-->
-            <img src="img/logo1.jpg">
+            <img  src="img/logo2.jpg">
         </div>
         <div class="nav-right">
             <ul class="nav navbar-nav">
-                <li><a href="homepage.html">选寝室</a></li>
+                <li><a href="#">选寝室</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         我的
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="mydo.html">我的寝室</a></li>
-                        <li><a href="message.html">个人信息</a></li>
-                        <li><a href="index.html">退出登录</a></li>
+                        <li><a href="#">我的寝室</a></li>
+                        <li><a href="#">修改信息</a></li>
+                        <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
-                <li><a href="needService.html">联系客服</a></li>
+                <li><a href="#">联系客服</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<span class="font-My-home">个人信息</span>
 <!--导航栏结束-->
 <main>
     <h1>个人信息</h1>
@@ -65,82 +43,103 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-10">
-                <p class="form-control-static" id="stuName"></p>
+                <p class="form-control-static">陈辰是猪</p>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">学号</label>
             <div class="col-sm-10">
-                <p class="form-control-static" id="stuCardId"></p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">邮箱</label>
-            <div class="col-sm-10">
-                <p class="form-control-static" id="stuEmail"></p>
+                <p class="form-control-static">201631061411</p>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">所在寝室</label>
             <div class="col-sm-10">
-                <p class="form-control-static" id="stuDorm"></p>
+                <p class="form-control-static">您还未选择你的寝室</p>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-sm-2 control-label">性格及兴趣爱好</label>
+            <div class="col-sm-10">
+                <p class="form-control-static"><span id="interests-num">0</span>/10</p>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10" id="add-interest">
+                <button type="button" class="btn btn-default interests ">唱歌</button>
+                <button type="button" class="btn btn-default interests">足球</button>
+                <button type="button" class="btn btn-default interests">篮球</button>
+                <button type="button" class="btn btn-default interests">羽毛球</button>
+                <button type="button" class="btn btn-default interests">舞蹈</button>
+                <button type="button" class="btn btn-default interests">安静</button>
+                <button type="button" class="btn btn-default interests">活泼</button>
+                <button type="button" class="btn btn-default interests">唱歌</button>
+                <button type="button" class="btn btn-default interests">足球</button>
+                <button type="button" class="btn btn-default interests">篮球</button>
+                <button type="button" class="btn btn-default interests">羽毛球</button>
+                <button type="button" class="btn btn-default interests">舞蹈</button>
+                <button type="button" class="btn btn-default interests">安静</button>
+                <button type="button" class="btn btn-default interests">活泼</button>
+                <button type="button" class="btn btn-default interests">唱歌</button>
+                <button type="button" class="btn btn-default interests">足球</button>
+                <button type="button" class="btn btn-default interests">篮球</button>
+                <button type="button" class="btn btn-default interests">羽毛球</button>
+                <button type="button" class="btn btn-default interests">唱歌</button>
+                <button type="button" class="btn btn-default interests">足球</button>
+                <button type="button" class="btn btn-default interests">篮球</button>
+                <button type="button" class="btn btn-default interests">羽毛球</button>
+                <button type="button" class="btn btn-default interests">舞蹈</button>
+                <button type="button" class="btn btn-default interests">安静</button>
+                <button type="button" class="btn btn-default interests">活泼</button>
+                <button type="button" class="btn btn-default interests">唱歌</button>
+                <button type="button" class="btn btn-default interests">足球</button>
+                <button type="button" class="btn btn-default interests">篮球</button>
+                <button type="button" class="btn btn-default interests">羽毛球</button>
+                <button type="button" class="btn btn-default interests">舞蹈</button>
+                <button type="button" class="btn btn-default interests">安静</button>
+                <button type="button" class="btn btn-default interests">活泼</button>
+                <button type="button" class="btn btn-default interests">唱歌</button>
+                <button type="button" class="btn btn-default interests">足球</button>
+                <button type="button" class="btn btn-default interests">篮球</button>
+                <button type="button" class="btn btn-default interests">羽毛球</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">隐藏性格及兴趣爱好</label>
+            <div class="radio col-sm-1">
+                <label>
+                    <input type="radio" name="interest"  value="y"> 是
+                </label>
+            </div>
+            <div class="radio col-sm-1">
+                <label>
+                    <input type="radio" name="interest"  value="n" checked>否
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">隐藏个人信息</label>
+            <div class="radio col-sm-1">
+                <label>
+                    <input type="radio" name="optionsRadios"  value="y"> 是
+                </label>
+            </div>
+            <div class="radio col-sm-1">
+                <label>
+                    <input type="radio" name="optionsRadios"  value="n" checked>否
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-success col-sm-offset-10">提交</button>
+            <button type="button" class="btn btn-danger">取消</button>
+        </div>
     </form>
 
 
 </main>
+
+
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/message.js"></script>
-
-<script type="text/javascript">
-    //初始加载
-    $(function () {
-        //主页验证，是否登录过，安全保障
-        $.ajax({
-            url: "/student/userInfo",
-            type: "GET",
-            success: function (result) {
-                if (result.code == 0) {
-                    //未登录过，跳转到登录界面
-                    location.href = "index.html";
-                } else {
-                    //成功登录,将信息append上去
-                    var stu=result.extend.student;
-                    $("#stuName").empty().append(stu.stuName);
-                    $("#stuCardId").empty().append(stu.stuCardId);
-                    $("#stuEmail").empty().append(stu.stuEmail);
-
-                    //查询寝室信息
-                    $.ajax({
-                        url: "/relation/studorm/" + result.extend.student.stuId,
-                        type: "GET",
-                        success: function (result1) {
-                            if (result1.code == 0) {
-                                $("#stuDorm").empty().append("您还未选择寝室");
-                            } else {
-                                //得到具体的寝室信息并同步到页面
-                                $.ajax({
-                                    url: "/building/getdorm/" + result1.extend.info.dormId,
-                                    type: "GET",
-                                    success: function (result2) {
-                                        //同步信息
-                                        var dorm = result2.extend.dorm.buildingNumber+"-"
-                                                    +result2.extend.dorm.dormNumber+" "
-                                                    +result1.extend.info.bedNum+"号床";
-
-                                        $("#stuDorm").empty().append(dorm);
-                                    }
-                                });
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    });
-</script>
 </body>
 </html>
