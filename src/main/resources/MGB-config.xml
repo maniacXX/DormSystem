@@ -60,5 +60,9 @@
         <table tableName="tbl_building" domainObjectName="Building"/>
         <table tableName="tbl_stu" domainObjectName="Student"/>
         <table tableName="stu_building" domainObjectName="StuRelationBul"/>
+        <table tableName="stu_inter" domainObjectName="StuRelationInter"/>
+        <table tableName="tbl_manager" domainObjectName="Manager"/>
+        <table tableName="mana_building" domainObjectName="ManaRelationBul"/>
+        <table tableName="mana_stu" domainObjectName="ManaRelationStu"/>
     </context>
 </generatorConfiguration>
