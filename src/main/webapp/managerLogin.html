@@ -21,11 +21,11 @@
     </div>
     <div class="main">
         <div id="title">
-            <h1>学生寝室管理系统</h1>
+            <h1>管理员登陆页面</h1>
         </div>
         <div id="loginform">
             <li>
-                <input type="text" id="admin" value="" placeholder="请输入学号"/>
+                <input type="text" id="admin" value="" placeholder="请输入管理员账号"/>
             </li>
             <li>
                 <span class="help-block" id="adminhelp"></span>
@@ -37,7 +37,7 @@
                 <span class="help-block" id="passwordhelp"></span>
             </li>
             <li>
-                <span><a href="managerLogin.html">管理员登陆</a></span>
+                <span><a href="index.html">学生登录</a></span>
             </li>
             <li>
                 <button  id="login">登录</button>
@@ -57,28 +57,16 @@
         $(ele+"help").text(msg);
     }
 
-    //admin数据验证
-    $("#admin").change(function () {
+    //登陆点击
+    $("#login").click(function () {
         var admin=$("#admin").val();
-        var reg=/^[0-9]{12}$/;
-        if(!reg.test(admin)){
-            show_validate_msg("#admin", "error", "学号需要是12位的数字");
+        if(admin==""||admin==null){
+            show_validate_msg("#admin", "error", "账号不能为空");
+            return false;
         }else{
             show_validate_msg("#admin", "success", "");
         }
-    });
 
-    //密码验证是否为空
-    $("#password").change(function () {
-        var password=$("#password").val();
-        if(password==""||password==null){
-            show_validate_msg("#password", "error", "密码不能为空");
-        }else{
-            show_validate_msg("#password", "success", "");
-        }
-    });
-
-    $("#login").click(function () {
         var password=$("#password").val();
         if(password==""||password==null){
             show_validate_msg("#password", "error", "密码不能为空");
@@ -87,7 +75,6 @@
             show_validate_msg("#password", "success", "");
         }
 
-        var admin=$("#admin").val();
         var message=admin+"-"+password;
         //ajax验证账号是否存在以及密码是否正确
         $.ajax({
