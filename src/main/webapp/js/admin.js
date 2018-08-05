@@ -24,11 +24,11 @@ $("#top-nav li").click(function () {
     $(this).addClass("active-li");
     $(this).siblings().removeClass("active-li");
 });
-$("#nav-room").click(function () {
+$("#nav-room,#xs-room-admin").click(function () {
    $(".revise").attr("data-target","#reviseRoomModal");
    $("#college,#major").attr("disabled","true");
 });
-$("#nav-stu").click(function () {
+$("#nav-stu,#xs-stu-admin").click(function () {
     $(".revise").attr("data-target","#reviseStuModal");
     $("#college,#major").removeAttr("disabled");
 });
