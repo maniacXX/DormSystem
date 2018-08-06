@@ -75,7 +75,7 @@
 <div id="center" class="container">
     <div id="AdminBlock">
         <form role="form" class="form-horizontal">
-            <div class="form-group ">
+            <div class="form-group" id="room-form">
                 <label for="unit" class="col-sm-1 control-label">楼栋</label>
                 <div class="col-sm-2">
                     <select class="form-control" id="unit">
@@ -98,6 +98,12 @@
                         <option>6</option>
                     </select>
                 </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default" id="room-search">搜索</button>
+                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addRoomModal" id="room-add">新增</button>
+                </div>
+            </div>
+            <div class="form-group" id="stu-form">
                 <label for="college" class="col-sm-1 control-label">学院</label>
                 <div class="col-sm-2">
                     <select class="form-control" id="college">
@@ -120,12 +126,12 @@
                         <option>6</option>
                     </select>
                 </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default" id="search">搜索</button>
+                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addRoomModal">新增</button>
+                </div>
             </div>
-            <div class="form-group pull-right">
-                <button type="button" class="btn btn-default" id="search">搜索</button>
-                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addRoomModal">新增</button>
-                <button type="button" class="btn btn-danger" id="batch-delete">批量删除</button>
-            </div>
+
             <!--添加模态框-->
             <div class="modal fade" id="addRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -235,7 +241,6 @@
             <table class="table table-hover" id="room-admin">
                 <thead>
                 <tr>
-                    <th><input type="checkbox" id="check-all"/></th>
                     <th>学号</th>
                     <th>姓名</th>
                     <th>邮箱</th>
@@ -246,7 +251,6 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><input type="checkbox"/></td>
                     <td>1</td>
                     <td>1</td>
                     <td>101</td>
@@ -258,7 +262,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"/></td>
                     <td>1</td>
                     <td>1</td>
                     <td>102</td>
@@ -270,7 +273,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
                     <td>1</td>
                     <td>1</td>
                     <td>103</td>
@@ -282,7 +284,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
                     <td>1</td>
                     <td>1</td>
                     <td>104</td>
@@ -309,10 +310,10 @@
                 <li><a href="#">&raquo;</a></li>
             </ul>
         </div>
-        <div class="row pull-right" id="del-btns">
+       <!-- <div class="row pull-right" id="del-btns">
             <button class="btn btn-default" id="cancle-delete">取消</button>
             <button class="btn btn-danger" id="confirm-delete">确认删除</button>
-        </div>
+        </div>-->
 
 
 <!--修改房间模态框-->

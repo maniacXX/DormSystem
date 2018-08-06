@@ -2,21 +2,21 @@
  * Created by luqingying on 2018/8/3.
  */
 /*页面加载的一些准备*/
-$("th:first-child,td:first-child").hide();
-$("#del-btns").hide();
-$("#college,#major").attr("disabled","true");
+
+/*$("#del-btns").hide();*/
+$("#stu-form").hide();
 
 /*批量删除点击*/
-$("#batch-delete").click(function () {
+/*$("#batch-delete").click(function () {
     $("th:first-child,td:first-child").show();
     $("#del-btns").show();
-})
+})*/
 
 /*取消批量删除*/
-$("#cancle-delete").click(function () {
+/*$("#cancle-delete").click(function () {
     $("th:first-child,td:first-child").hide();
     $("#del-btns").hide();
-})
+})*/
 
 
 /*导航栏点击部分*/
@@ -26,20 +26,22 @@ $("#top-nav li").click(function () {
 });
 $("#nav-room,#xs-room-admin").click(function () {
    $(".revise").attr("data-target","#reviseRoomModal");
-   $("#college,#major").attr("disabled","true");
+    $("#room-form").show();
+    $("#stu-form").hide();
 });
 $("#nav-stu,#xs-stu-admin").click(function () {
     $(".revise").attr("data-target","#reviseStuModal");
-    $("#college,#major").removeAttr("disabled");
+    $("#room-form").hide();
+    $("#stu-form").show();
 });
 
-
+/*
 $("#check-all").click(function () {
     $(":checkbox").each(function(){
         $(this).attr("checked", !$(this).attr("checked"));
     });
 
-});
+});*/
 
 
 /*$.ajax({
