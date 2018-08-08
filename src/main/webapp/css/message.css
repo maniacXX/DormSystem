@@ -3,4 +3,16 @@ main{
 }
 .interests{
     margin:5px auto;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+}
+.interests .intersts-name{
+     display: block;
+ }
+.level{
+    font-size: 22px;
+}
+.level:hover{
+   color: 	#FFD700;
 }
