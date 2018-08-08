@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
  * @date 2018/8/8 16:06
  */
 
-@Service
 public interface StuRelationInterService {
 
     /**

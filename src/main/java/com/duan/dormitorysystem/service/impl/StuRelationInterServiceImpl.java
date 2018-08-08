@@ -5,6 +5,7 @@ import com.duan.dormitorysystem.bean.StuRelationInterExample;
 import com.duan.dormitorysystem.dao.StuRelationInterMapper;
 import com.duan.dormitorysystem.service.inter.StuRelationInterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @date 2018/8/8 16:08
  */
 
+@Service
 public class StuRelationInterServiceImpl implements StuRelationInterService{
 
     @Autowired

@@ -197,13 +197,24 @@
                     stuId=result.extend.student.stuId;
 
                     //是否登记了兴趣
+                    $.ajax({
+                        url:"/inter/check/"+stuId,
+                        type:"GET",
+                        success:function (result1) {
+                            if (result1.code===0){
+                                //没有统计兴趣
+                                location.href="interest.html";
+                            }else {
+                                //已经统计了兴趣
 
+                                //加载学生信息到页面
+                                loadInfo(result);
 
-                    //加载学生信息到页面
-                    loadInfo(result);
-
-                    //寝室列表的加载
-                    to_page(1);
+                                //寝室列表的加载
+                                to_page(1);
+                            }
+                        }
+                    });
                 }
             }
         });
