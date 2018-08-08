@@ -69,4 +69,23 @@ public class StuRelationBulServiceImpl implements StuRelationBulService{
         Collections.sort(list,new MyComparator());
         return list;
     }
+
+    /**
+     * 返回所有关系信息
+     * @return 所有关系信息
+     */
+    public List<StuRelationBul> getAll() {
+        return stuRelationBulMapper.selectByExample(null);
+    }
+
+    /**
+     * 删除与房间相关的id
+     * @param id 房间id
+     */
+    public void deleteByDormId(long id) {
+        StuRelationBulExample example=new StuRelationBulExample();
+        StuRelationBulExample.Criteria criteria=example.createCriteria();
+        criteria.andDormIdEqualTo(id);
+        stuRelationBulMapper.deleteByExample(example);
+    }
 }

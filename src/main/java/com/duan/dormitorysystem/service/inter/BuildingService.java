@@ -38,4 +38,30 @@ public interface BuildingService {
      * @param building 寝室对象
      */
     void pick(Building building);
+
+    /**
+     * 检查新添加的房间是不是重复了
+     * @param buildingNumber 楼栋号
+     * @param dormNumber 房间号
+     * @return 布尔值
+     */
+    boolean checkRepeat(String buildingNumber, String dormNumber);
+
+    /**
+     * 新添加一个房间
+     * @param building 要添加的房间
+     */
+    void add(Building building);
+
+    /**
+     * 修改房间信息
+     * @param building 房间信息
+     */
+    public void update(Building building);
+
+    /**
+     * 删除房间
+     * @param id 房间id
+     */
+    void deleteById(long id);
 }

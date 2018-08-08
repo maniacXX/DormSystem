@@ -78,17 +78,17 @@
         var message=admin+"-"+password;
         //ajax验证账号是否存在以及密码是否正确
         $.ajax({
-            url:"/student/check/"+message,
+            url:"/mana/check/"+message,
             type:"POST",
             success:function (result) {
                 if(result.code==0){
                     if(result.extend.reason==1){
                         show_validate_msg("#password", "error", "密码错误");
                     }else {
-                        show_validate_msg("#admin", "error", "该学号不存在");
+                        show_validate_msg("#admin", "error", "该账号不存在");
                     }
                 }else {
-                        location.href="homepage.html";
+                        location.href="admin.html";
                 }
             }
         });

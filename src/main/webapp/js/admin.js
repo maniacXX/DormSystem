@@ -6,19 +6,6 @@ $("th:first-child,td:first-child").hide();
 $("#del-btns").hide();
 $("#college,#major").attr("disabled","true");
 
-/*批量删除点击*/
-$("#batch-delete").click(function () {
-    $("th:first-child,td:first-child").show();
-    $("#del-btns").show();
-})
-
-/*取消批量删除*/
-$("#cancle-delete").click(function () {
-    $("th:first-child,td:first-child").hide();
-    $("#del-btns").hide();
-})
-
-
 /*导航栏点击部分*/
 $("#top-nav li").click(function () {
     $(this).addClass("active-li");
