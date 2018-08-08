@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.duan.dormitorysystem.bean.Msg;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Duan
@@ -130,4 +128,119 @@ public class BuildingController {
         return Msg.success();
     }
 
+    /**
+     * 获取所有寝室，并放入map
+     * @return 寝室信息
+     */
+    @RequestMapping(value = "/mapAll",method = RequestMethod.GET)
+    @ResponseBody
+    public Msg getMapAll(){
+        List<Building> list=buildingService.getAll();
+
+        return Msg.success().add("building",list);
+    }
+
+    /**
+     * 新添加一个房间
+     * @param message 房间信息
+     * @return 添加是否成功
+     */
+    @RequestMapping(value = "/add/{message}",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg add(@PathVariable("message") String message){
+        String[] infos=message.split("-");
+
+        //房间查重，重复就不添加，返回失败
+        if(buildingService.checkRepeat(infos[0],infos[1])){
+            return Msg.fail();
+        }
+
+        Byte b=new Byte("0");
+        Building building=new Building(null,infos[0],infos[1],Byte.parseByte(infos[2]),b,b,b,b,b,b,b,new Date(),new Date());
+
+        buildingService.add(building);
+
+        return Msg.success();
+    }
+
+    /**
+     * 修改房间信息
+     * @param message 房间信息
+     * @return 修改状态
+     */
+    @RequestMapping(value = "/update/{message}",method = RequestMethod.PUT)
+    @ResponseBody
+    public Msg update(@PathVariable("message") String message){
+        String[] infos=message.split("-");
+
+        //房间查重，重复就不修改，返回失败
+        if(buildingService.checkRepeat(infos[1],infos[2])){
+            return Msg.fail();
+        }
+
+        Building building=new Building(Long.parseLong(infos[0]),infos[1],infos[2],null,null,null,null,null,null,null,null,new Date(),new Date());
+
+        buildingService.update(building);
+
+        return Msg.success();
+    }
+
+    /**
+     * 删除房间
+     * @param id 房间id
+     * @return 状态
+     */
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
+    @ResponseBody
+    public Msg deleteById(@PathVariable("id") long id){
+        buildingService.deleteById(id);
+
+        return Msg.success();
+    }
+
+    /**
+     * 检查是否可以修改，若可以，直接修改
+     * @param message 房间信息
+     * @return 状态
+     */
+    @RequestMapping(value = "/checkAvai/{message}",method = RequestMethod.PUT)
+    @ResponseBody
+    public Msg checkAvai(@PathVariable("message") String message){
+        String[] infos=message.split("-");
+
+        Building building=buildingService.getDormByinfo(infos[0],infos[1]);
+
+        if (building==null){
+            return Msg.fail().add("reason",0);
+        }else if(Integer.parseInt(infos[2])>6||Integer.parseInt(infos[2])<1){
+            return Msg.fail().add("reason",1);
+        }else if((building.getDorm1Bed()==(byte)1&&infos[2].equals("1"))||
+                (building.getDorm2Bed()==(byte)1&&infos[2].equals("2"))||
+                (building.getDorm3Bed()==(byte)1&&infos[2].equals("3"))||
+                (building.getDorm4Bed()==(byte)1&&infos[2].equals("4"))||
+                (building.getDorm5Bed()==(byte)1&&infos[2].equals("5"))||
+                (building.getDorm6Bed()==(byte)1&&infos[2].equals("6"))){
+            return Msg.fail().add("reason",2);
+        }else {
+            if (infos[2].equals("1")){
+                building.setDorm1Bed((byte) 1);
+            }else if (infos[2].equals("2")){
+                building.setDorm2Bed((byte) 1);
+            }else if (infos[2].equals("3")){
+                building.setDorm3Bed((byte) 1);
+            }else if (infos[2].equals("4")){
+                building.setDorm4Bed((byte) 1);
+            }else if (infos[2].equals("5")){
+                building.setDorm5Bed((byte) 1);
+            }else{
+                building.setDorm6Bed((byte) 1);
+            }
+
+            building.setDormCurrentPeople((byte) (building.getDormCurrentPeople()+1));
+
+            buildingService.update(building);
+
+            return Msg.success().add("dormId",building.getDormId());
+        }
+    }
 }

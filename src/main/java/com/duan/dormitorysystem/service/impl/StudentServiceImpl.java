@@ -23,7 +23,11 @@ public class StudentServiceImpl implements StudentService{
     @Autowired
     private StudentMapper studentMapper;
 
-
+    /**
+     * 账号检查
+     * @param admin 学生的学号
+     * @return 学生对象
+     */
     public Student adminCheck(String admin) {
         StudentExample studentExample=new StudentExample();
         StudentExample.Criteria criteria=studentExample.createCriteria();
@@ -39,9 +43,21 @@ public class StudentServiceImpl implements StudentService{
     /**
      * 通过学生id得到学生信息
      * @param stuId 学生id
-     * @return 学生信息
+     * @return 学生对象
      */
     public Student getInfoById(Long stuId) {
         return studentMapper.selectByPrimaryKey(stuId);
+    }
+
+    /**
+     * 获取所有学生信息
+     * @return 所有学生信息
+     */
+    public List<Student> getAll() {
+        return studentMapper.selectByExample(null);
+    }
+
+    public void delete(long id) {
+        studentMapper.deleteByPrimaryKey(id);
     }
 }

@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>寝室管理系统——管理员</title>
-    <link href="css/bootstrap.min.css"  rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
 </head>
 
 <body>
-<div id="top-bar"  class="navbar navbar-default" role="navigation">
+
+
+<div id="top-bar" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="hidden-xs">
             <div class="navbar-header">
@@ -16,23 +18,23 @@
             </div>
             <ul class="nav navbar-nav" id="top-nav">
                 <li class="active-li" id="nav-room">
-                    <a href="#">
-                       房间管理
+                    <a href="#" class="dorm-mana">
+                        房间管理
                     </a>
                 </li>
                 <li id="nav-stu">
-                    <a href="#">
+                    <a href="#" class="student-mana">
                         学生管理
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle name" data-toggle="dropdown">
-                        陈二狗<b class="caret"></b>
+                    <a id="manaName" href="#" class="dropdown-toggle name" data-toggle="dropdown">
+                        <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">退出</a></li>
+                        <li><a href="#" class="exit-page">退出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -50,13 +52,13 @@
             </div>
             <div class="collapse navbar-collapse" id="xs-nav">
                 <ul class="nav navbar-nav">
-                    <li role="presentation" id="xs-room-admin"><a href="#">房间管理</a></li>
-                    <li role="presentation" id="xs-stu-admin"><a href="#">学生管理</a></li>
+                    <li role="presentation"><a href="#" class="dorm-mana">房间管理</a></li>
+                    <li role="presentation"><a href="#" class="student-mana">学生管理</a></li>
                     <li role="presentation" class="divider">
 
                     </li>
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">退出</a>
+                        <a role="menuitem" tabindex="-1" href="#" class="exit-page">退出</a>
                     </li>
                 </ul>
             </div>
@@ -64,76 +66,25 @@
     </div>
 </div>
 
-<!--<div id="left-bar" >
-    <ul id="nav">
-        <li>查找</li>
-        <li>增加</li>
-        <li>删除</li>
-        <li>修改</li>
-    </ul>
-</div>-->
+<!--主体内容-->
 <div id="center" class="container">
     <div id="AdminBlock">
+
+        <!--顶部-->
         <form role="form" class="form-horizontal">
-            <div class="form-group" id="room-form">
-                <label for="unit" class="col-sm-1 control-label">楼栋</label>
-                <div class="col-sm-2">
-                    <select class="form-control" id="unit">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-                <label for="floors" class="col-sm-1 control-label">楼层</label>
-                <div class="col-sm-2">
-                    <select class="form-control" id="floors">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-                <div class="pull-right">
-                    <button type="button" class="btn btn-default" id="room-search">搜索</button>
-                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addRoomModal" id="room-add">新增</button>
-                </div>
-            </div>
-            <div class="form-group" id="stu-form">
-                <label for="college" class="col-sm-1 control-label">学院</label>
-                <div class="col-sm-2">
-                    <select class="form-control" id="college">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-                <label for="major" class="col-sm-1 control-label">专业</label>
-                <div class="col-sm-2">
-                    <select class="form-control" id="major">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
-                </div>
-                <div class="pull-right">
-                    <button type="button" class="btn btn-default" id="search">搜索</button>
-                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addRoomModal">新增</button>
-                </div>
+
+            <!--按钮-->
+            <div class="form-group pull-right">
+                <button id="sort-button" type="button" class="btn btn-primary" data-toggle="modal">空间整合
+                </button>
+                <button id="add-button" type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#addRoomModal">新增
+                </button>
             </div>
 
-            <!--添加模态框-->
-            <div class="modal fade" id="addRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!--添加房间模态框-->
+            <div class="modal fade" id="addRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -145,179 +96,56 @@
                                 <div class="form-group">
                                     <label for="add-unit" class="col-sm-3 control-label">楼栋</label>
                                     <div class="col-sm-8">
-                                        <input type="text" id="add-unit" class="form-control"  placeholder="例：1">
+                                        <input type="text" id="add-unit" class="form-control" placeholder="例：1">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="add-floor" class="col-sm-3 control-label">楼层</label>
                                     <div class="col-sm-8">
-                                        <input type="text" id="add-floor" class="form-control"  placeholder="例：1">
+                                        <input type="text" id="add-floor" class="form-control" placeholder="例：1">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">房间号</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" id="add-room-start" class="form-control" placeholder="起始房间号">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" id="add-room-end" class="form-control" placeholder="末尾房间号">
+                                    <div class="col-sm-8">
+                                        <input type="text" id="add-room" class="form-control" placeholder="房间号">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="add-num" class="col-sm-3 control-label">可容纳人数</label>
                                     <div class="col-sm-8">
-                                        <input type="text" id="add-num" class="form-control"  placeholder="例：1">
+                                        <input type="text" id="add-num" class="form-control" placeholder="例：1">
                                     </div>
                                 </div>
+                                <div><span id="add-hint"></span></div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button type="button" class="btn btn-primary">添加</button>
+                            <button type="button" id="add-enter" class="btn btn-primary">添加</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal -->
             </div>
         </form>
-            <!--<table class="table table-hover" id="room-admin">
-                <thead>
-                <tr>
-                    <th>楼栋</th>
-                    <th>楼层</th>
-                    <th>房间号</th>
-                    <th>居住情况</th>
-                    <th>成员</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>101</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>102</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>103</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>104</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>--> <!--房间管理表-->
 
-            <table class="table table-hover" id="room-admin">
-                <thead>
-                <tr>
-                    <th>学号</th>
-                    <th>姓名</th>
-                    <th>邮箱</th>
-                    <th>寝室</th>
-                    <th>床号</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>101</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>102</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise" data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>103</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>104</td>
-                    <td>3/6</td>
-                    <td>陈猪猪、徐高高、骚渐渐</td>
-                    <td>
-                        <button type="button" class="btn btn-primary revise"data-toggle="modal" data-target="#reviseRoomModal">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table><!--学生管理表-->
-        <div class="row">
-           共<span id="all-page">1</span>页,<span id="all-num">1</span>条记录
+        <!--信息管理表-->
+        <table class="table table-hover" id="room-admin">
+            <thead id="infoHead">
+            </thead>
+            <tbody id="infoBody">
+            </tbody>
+        </table>
+
+        <!--分页-->
+        <div>
+            <div class="row" id="page-info"></div>
+            <div class="row text-center" id="page-nav"></div>
         </div>
-        <div class="row text-center">
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
-        </div>
-       <!-- <div class="row pull-right" id="del-btns">
-            <button class="btn btn-default" id="cancle-delete">取消</button>
-            <button class="btn btn-danger" id="confirm-delete">确认删除</button>
-        </div>-->
 
-
-<!--修改房间模态框-->
-        <div class="modal fade" id="reviseRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!--修改房间模态框-->
+        <div class="modal fade" id="reviseRoomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -329,38 +157,35 @@
                             <div class="form-group">
                                 <label for="add-unit" class="col-sm-3 control-label">楼栋</label>
                                 <div class="col-sm-8">
-                                    <input type="text" id="revise-unit" class="form-control"  placeholder="例：1">
+                                    <input type="text" id="revise-unit" class="form-control" placeholder="例：1">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="add-floor" class="col-sm-3 control-label">楼层</label>
                                 <div class="col-sm-8">
-                                    <input type="text" id="revise-floor" class="form-control"  placeholder="例：1">
+                                    <input type="text" id="revise-floor" class="form-control" placeholder="例：1">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">房间号</label>
                                 <div class="col-sm-8">
-                                    <input type="text" id="revise-room" class="form-control" placeholder="起始房间号">
+                                    <input type="text" id="revise-room" class="form-control" placeholder="房间号">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="add-num" class="col-sm-3 control-label">可容纳人数</label>
-                                <div class="col-sm-8">
-                                    <input type="text" id="revise-num" class="form-control"  placeholder="例：1">
-                                </div>
-                            </div>
+                            <div><span id="room-edit-hint"></span></div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary">修改</button>
+                        <button type="button" id="room-edit-enter" class="btn btn-primary">修改</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
+
         <!--修改学生信息模态框-->
-        <div class="modal fade" id="reviseStuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="reviseStuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -369,6 +194,12 @@
                     </div>
                     <div class="modal-body">
                         <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">楼栋</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="revise-stu-building" class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">寝室</label>
                                 <div class="col-sm-8">
@@ -381,19 +212,668 @@
                                     <input type="text" id="revise-stu-bed" class="form-control">
                                 </div>
                             </div>
+                            <div><span id="stu-edit-hint"></span></div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary">修改</button>
+                        <button type="button" id="stu-edit-enter" class="btn btn-primary">修改</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
+
     </div>
 </div>
-</body>
+
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/admin.js"></script>
+<script type="text/javascript">
+    //管理员信息
+    var mana;
+
+    var selectId;
+    var oldBedNum;
+    var oldDormId;
+    var manaStuId;
+    var selectFlag;
+
+    //页面开始时就加载
+    $(function () {
+
+        //按钮切换
+        $("#add-button").show();
+        $("#sort-button").hide();
+
+        //主页验证，是否登录过，安全保障
+        $.ajax({
+            url: "/mana/manaInfo",
+            type: "GET",
+            success: function (result) {
+                if (result.code == 0) {
+                    //未登录过，跳转到登录界面
+                    location.href = "managerLogin.html";
+                } else {
+                    //成功登录
+                    mana = result.extend.mana;
+
+                    //加载管理员名字到页面
+                    $("#manaName").append(mana.manaName);
+
+                    //加载房间信息
+                    to_page(0, 1);
+                }
+            }
+        });
+    });
+
+    //信息与分页
+    function to_page(select, pn) {
+
+        //房间信息与分页
+        if (select == 0) {
+
+            //按钮切换
+            $("#add-button").show();
+            $("#sort-button").hide();
+
+            $.ajax({
+                url: "/building/all",
+                type: "GET",
+                data: "pn=" + pn,
+                success: function (result) {
+                    //加载寝室列表
+                    loadDorm(result);
+
+                    //加载分页信息
+                    build_page(0, result);
+                }
+            });
+        } else {//学生分页与信息
+
+            //按钮切换
+            $("#add-button").hide();
+            $("#sort-button").show();
+
+            $.ajax({
+                url: "/student/all",
+                type: "GET",
+                data: "pn=" + pn,
+                success: function (result) {
+                    //加载学生列表
+                    loadStudent(result);
+
+                    //加载分页信息
+                    build_page(1, result);
+                }
+            });
+        }
+    }
+
+    //加载房间信息
+    function loadDorm(result) {
+
+        //表头信息添加
+        $("#infoHead").empty().append(
+            $("<tr></tr>").append(
+                $("<th>楼栋</th>")
+            ).append(
+                $("<th>楼层</th>")
+            ).append(
+                $("<th>房间号</th>")
+            ).append(
+                $("<th>入住人数</th>")
+            ).append(
+                $("<th>最大容纳人数</th>")
+            ).append(
+                $("<th>操作</th>")
+            )
+        );
+
+        //加载寝室信息
+        $("#infoBody").empty();
+
+        var dorm = result.extend.pageInfo.list;
+
+        $.each(dorm, function (index, item) {
+
+            //基础信息
+            var buildingNumber = $("<td></td>").append(item.buildingNumber);
+            var floor = $("<td></td>").append(item.dormNumber.substring(0, 1));
+            var dormNumber = $("<td></td>").append(item.dormNumber);
+            var dormCurrentPeople = $("<td></td>").append(item.dormCurrentPeople);
+            var dormMaxPeople = $("<td></td>").append(item.dormMaxPeople);
+
+            //编辑按钮
+            var editBtn = $("<button></button>").addClass("dorm-edit btn btn-primary btn-sm edit-btn")
+                .append($("<span></span>").addClass("glyphicon"))
+                .append("编辑");
+            //为编辑按钮添加自定义的属性,表示当前房间的id
+            editBtn.attr("edit-id", item.dormId);
+
+            //删除按钮
+            var DeleteBtn = $("<button></button>").addClass("dorm-delete btn btn-danger btn-sm delete-btn")
+                .append($("<span></span>").addClass("glyphicon"))
+                .append("删除");
+            //为删除按钮添加自定义的属性,表示当前寝室的id
+            DeleteBtn.attr("delete-id", item.dormId);
+
+            $("#infoBody").append($("<tr></tr>").append(buildingNumber)
+                .append(floor).append(dormNumber).append(dormCurrentPeople)
+                .append(dormMaxPeople).append($("<td></td>").append(editBtn).append(" ").append(DeleteBtn)));
+        });
+    }
+
+    //加载学生信息
+    function loadStudent(result) {
+
+        //表头信息添加
+        $("#infoHead").empty().append(
+            $("<tr></tr>").append(
+                $("<th>学号</th>")
+            ).append(
+                $("<th>姓名</th>")
+            ).append(
+                $("<th>邮箱</th>")
+            ).append(
+                $("<th>寝室</th>")
+            ).append(
+                $("<th>床位号</th>")
+            ).append(
+                $("<th>操作</th>")
+            )
+        );
+
+        //加载学生信息
+        $("#infoBody").empty();
+
+        var student = result.extend.pageInfo.list;
+
+        //得到所有关系组成的map
+        $.ajax({
+            url: "/relation/mapAll",
+            type: "GET",
+            success: function (result1) {
+                var relations = result1.extend.relation;
+
+                //得到所有寝室id对寝室名称的map
+                $.ajax({
+                    url: "/building/mapAll",
+                    type: "GET",
+                    success: function (result2) {
+                        var buildings = result2.extend.building;
+
+                        $.each(student, function (index, item) {
+
+                            //基础信息
+                            var stuCardId = $("<td></td>").append(item.stuCardId);
+                            var stuName = $("<td></td>").append(item.stuName);
+                            var stuEmail = $("<td></td>").append(item.stuEmail);
+
+                            var stuId = item.stuId;
+
+                            var relation = null;
+                            $.each(relations, function (index1, item1) {
+                                if (stuId === item1.stuId) {
+                                    relation = item1;
+                                }
+                            });
+
+                            //该学生当前已经选择寝室
+                            if (relation != null) {
+                                var building = null;
+                                $.each(buildings, function (index2, item2) {
+                                    if (relation.dormId === item2.dormId) {
+                                        building = item2;
+                                    }
+                                });
+                                var building = $("<td></td>").append(building.buildingNumber + "-" + building.dormNumber);
+                                var bedNum = $("<td></td>").append(relation.bedNum);
+                            } else {//未选择寝室
+                                var building = $("<td></td>").append("未选");
+                                var bedNum = $("<td></td>").append("未选");
+
+                            }
+
+                            //编辑按钮
+                            var editBtn = $("<button></button>").addClass("student-edit btn btn-primary btn-sm edit-btn")
+                                .append($("<span></span>").addClass("glyphicon"))
+                                .append("编辑");
+                            //为编辑按钮添加自定义的属性,表示当前学生的id
+                            editBtn.attr("edit-id", item.stuId);
+
+                            //删除按钮
+                            var DeleteBtn = $("<button></button>").addClass("student-delete btn btn-danger btn-sm delete-btn")
+                                .append($("<span></span>").addClass("glyphicon"))
+                                .append("删除");
+                            //为删除按钮添加自定义的属性,表示当前学生的id
+                            DeleteBtn.attr("delete-id", item.stuId);
+
+                            $("#infoBody").append($("<tr></tr>").append(stuCardId)
+                                .append(stuName).append(stuEmail).append(building)
+                                .append(bedNum).append($("<td></td>").append(editBtn).append(" ").append(DeleteBtn)));
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    //加载分页信息
+    function build_page(select, result) {
+        var pageInfo = result.extend.pageInfo;
+
+        //分页信息
+        $("#page-info").empty().append("当前第" + pageInfo.pageNum + "页，总" + pageInfo.pages + "页，总" + pageInfo.total + "条记录");
+
+        //分页条
+        $("#page-nav").empty();
+
+        var ul = $("<ul></ul>").addClass("pagination");
+        var firstLi = $("<li></li>").append($("<a></a>").append("首页").attr("href", "#"));
+        var preLi = $("<li></li>").append($("<a></a>").append("&laquo;").attr("href", "#"));
+
+        if (pageInfo.hasPreviousPage == false) {
+            firstLi.addClass("disabled");
+            preLi.addClass("disabled");
+        } else {
+            firstLi.click(function () {
+                to_page(select, 1);
+            })
+            preLi.click(function () {
+                to_page(select, pageInfo.pageNum - 1);
+            })
+        }
+
+        var nextLi = $("<li></li>").append($("<a></a>").append("&raquo;").attr("href", "#"));
+        var lastLi = $("<li></li>").append($("<a></a>").append("末页").attr("href", "#"));
+
+        if (pageInfo.hasNextPage == false) {
+            lastLi.addClass("disabled");
+            nextLi.addClass("disabled");
+        } else {
+            nextLi.click(function () {
+                to_page(select, result.extend.pageInfo.pageNum + 1);
+            })
+            lastLi.click(function () {
+                to_page(select, result.extend.pageInfo.pages);
+            })
+        }
+
+        ul.append(firstLi).append(preLi);
+        $.each(pageInfo.navigatepageNums, function (index, item) {
+            var numLi = $("<li></li>").append($("<a></a>").append(item).attr("href", "#"));
+            if (pageInfo.pageNum == item) {
+                numLi.addClass("active");
+            }
+            numLi.click(function () {
+                to_page(select, item);
+            })
+            ul.append(numLi);
+        });
+        ul.append(nextLi).append(lastLi);
+        $("#page-nav").append($("<nav></nav>").append(ul));
+    }
+
+    //房间管理点击
+    $(".dorm-mana").click(function () {
+        to_page(0, 1);
+    });
+
+    //学生管理
+    $(".student-mana").click(function () {
+        to_page(1, 1);
+    });
+
+    //退出
+    $(".exit-page").click(function () {
+        location.href = "managerLogin.html"
+    });
+
+    //房间的添加
+    $("#add-button").click(function () {
+        //清空模态框
+        $("#addRoomModal form")[0].reset();
+        $("#add-hint").empty();
+
+        //弹出模态框
+        $("#addRoomModal").modal({
+            backdrop: "static"
+        });
+    });
+
+    //确认添加的点击
+    $("#add-enter").click(function () {
+        //获取模态框的值
+        var building = $("#add-unit").val();
+        var floor = $("#add-floor").val();
+        var room = $("#add-room").val();
+        var num = $("#add-num").val();
+
+        if (building === "" || floor === "" || room === "" || num === "") {
+            $("#add-hint").empty().append("有值为空！");
+            return false;
+        }
+
+        var message = building + "-" + room + "-" + num;
+
+        $.ajax({
+            url: "/building/add/" + message,
+            type: "POST",
+            success: function (result) {
+                if (result.code === 0) {
+                    $("#add-hint").empty().append("该房间已经存在");
+                } else {
+                    $("#add-hint").empty();
+                    $("#addRoomModal").modal('hide');
+                    to_page(0, 1);
+                    alert("房间添加成功");
+                }
+            }
+        });
+    });
+
+    //房间编辑按钮的点击
+    $(document).on("click", ".dorm-edit", function () {
+        var id = $(this).attr("edit-id");
+
+        //把id给编辑确定按钮
+        $("#room-edit-enter").attr("edit-id", id);
+
+        //拿到寝室信息，并加载到模态框中
+        $.ajax({
+            url: "/building/getdorm/" + id,
+            type: "GET",
+            success: function (result) {
+                var dorm = result.extend.dorm;
+
+                //信息加载
+                $("#revise-unit").val(dorm.buildingNumber);
+                $("#revise-floor").val(dorm.dormNumber.substring(0, 1));
+                $("#revise-room").val(dorm.dormNumber);
+                $("#revise-num").val(dorm.dormMaxPeople);
+
+                $("#room-edit-hint").empty();
+                //模态框弹出
+                $("#reviseRoomModal").modal({
+                    backdrop: "static"
+                });
+            }
+        });
+    });
+
+    //房间确认编辑按钮的点击
+    $("#room-edit-enter").click(function () {
+        //获取模态框的值
+        var building = $("#revise-unit").val();
+        var floor = $("#revise-floor").val();
+        var room = $("#revise-room").val();
+
+        if (building === "" || floor === "" || room === "") {
+            $("#room-edit-enter").empty().append("值不能为空！");
+            return false;
+        }
+
+        var message = $(this).attr("edit-id") + "-" + building + "-" + room;
+
+        $.ajax({
+            url: "/building/update/" + message,
+            type: "PUT",
+            success: function (result) {
+                if (result.code === 0) {
+                    $("#room-edit-hint").empty().append("该房间已经存在");
+                } else {
+                    $("#room-edit-hint").empty();
+                    $("#reviseRoomModal").modal('hide');
+                    to_page(0, 1);
+                    alert("房间修改成功");
+                }
+            }
+        });
+    });
+
+    //房间删除按钮点击
+    $(document).on("click", ".dorm-delete", function () {
+        var id = $(this).attr("delete-id");
+
+        //获得信息
+        $.ajax({
+            url: "/building/getdorm/" + id,
+            type: "GET",
+            success: function (result) {
+                var dorm = result.extend.dorm;
+
+                if (confirm("确认删除[" + dorm.buildingNumber + "-" + dorm.dormNumber + "]吗?删除后，选择该房间的学生需要重新选择寝室。")) {
+                    //确认，发送ajax请求来删除
+
+                    //删除寝室
+                    $.ajax({
+                        url: "/building/delete/" + id,
+                        type: "DELETE",
+                        success: function (result) {
+                            //删除寝室与学生的关联
+                            $.ajax({
+                                url: "/relation/deleteByDormId/" + id,
+                                type: "DELETE",
+                                success: function (result1) {
+                                    alert("删除成功");
+
+                                    //回到首页
+                                    to_page(0, 1);
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+    //学生编辑按钮点击
+    $(document).on("click", ".student-edit", function () {
+        var id = $(this).attr("edit-id");
+
+        //把id给编辑确定按钮
+        $("#stu-edit-enter").attr("edit-id", id);
+
+        //拿到信息并同步到模态框
+        $.ajax({
+            url: "/student/get/" + id,
+            type: "GET",
+            success: function (result) {
+                var stu = result.extend.stu;
+                manaStuId = stu.stuId;
+                //获取学生与寝室的关系
+                $.ajax({
+                    url: "/relation/studorm/" + stu.stuId,
+                    type: "GET",
+                    success: function (result1) {
+                        if (result1.code == 0) {
+
+                            $("#revise-stu-building").val("未选");
+                            $("#revise-stu-room").val("未选");
+                            $("#revise-stu-bed").val("未选");
+
+                            selectFlag = 0;
+                        } else {
+                            selectFlag = 1;
+                            $("#revise-stu-bed").val(result1.extend.info.bedNum);
+                            selectId = result1.extend.info.relationId;
+                            oldDormId = result1.extend.info.dormId;
+                            oldBedNum = result1.extend.info.bedNum;
+
+                            //得到具体的寝室信息并同步到模态框
+                            $.ajax({
+                                url: "/building/getdorm/" + result1.extend.info.dormId,
+                                type: "GET",
+                                success: function (result2) {
+                                    //同步信息
+                                    var dorm = result2.extend.dorm;
+
+                                    $("#revise-stu-building").val(dorm.buildingNumber);
+                                    $("#revise-stu-room").val(dorm.dormNumber);
+                                }
+                            });
+                        }
+                    }
+                });
+
+                $("#stu-edit-hint").empty();
+
+                //模态框弹出
+                $("#reviseStuModal").modal({
+                    backdrop: "static"
+                });
+            }
+        });
+    });
+
+    //学生确认编辑按钮的点击
+    $("#stu-edit-enter").click(function () {
+        //获得输入框的值
+        var building = $("#revise-stu-building").val();
+        var room = $("#revise-stu-room").val();
+        var bed = $("#revise-stu-bed").val();
+
+        //空值验证
+        if (building === "" || room === "" || bed === "") {
+            $("#stu-edit-enter").empty().append("值不能为空！");
+            return false;
+        }
+
+        var message = building + "-" + room + "-" + bed;
+
+        //先检查修改是否合法
+        $.ajax({
+            url: "/building/checkAvai/" + message,
+            type: "PUT",
+            success: function (result) {
+                if (result.code === 0) {
+                    //未成功修改
+                    if (result.extend.reason === 0) {
+                        $("#stu-edit-hint").empty().append("未找到该寝室！");
+                    } else if (result.extend.reason === 1) {
+                        $("#stu-edit-hint").empty().append("该寝室没有该床位！");
+                    } else {
+                        $("#stu-edit-hint").empty().append("该床位已有人！");
+                    }
+                } else {
+                    //成功修改
+
+                    //解除旧寝室的绑定
+                    if (selectFlag === 1) {
+                        //寝室与学生关联删除
+                        $.ajax({
+                            url: "/relation/delete/" + selectId,
+                            type: "DELETE",
+                            success: function (result1) {
+                            }
+                        });
+
+                        //旧寝室旧状态修改
+                        $.ajax({
+                            url: "/building/cancel/" + oldDormId + "-" + oldBedNum,
+                            type: "PUT",
+                            success: function (result2) {
+                            }
+                        });
+                    }
+
+                    //建立新的寝室关系
+                    var dormId = result.extend.dormId;
+                    var message1 = dormId + "-" + manaStuId + "-" + bed;
+
+                    $.ajax({
+                        url: "/relation/add/" + message1,
+                        type: "GET",
+                        success: function (result3) {
+                            //隐藏模态框
+                            $("#reviseStuModal").modal("hide");
+
+                            to_page(1, 1);
+
+                            alert("修改成功");
+                        }
+                    });
+                }
+            }
+        });
+
+    });
+
+    //学生删除按钮的点击
+    $(document).on("click", ".student-delete", function () {
+        var id = $(this).attr("delete-id");
+
+        //获得信息
+        $.ajax({
+            url: "/student/get/" + id,
+            type: "GET",
+            success: function (result) {
+                var stu = result.extend.stu;
+
+                if (confirm("确认删除[" + stu.stuCardId + " " + stu.stuName + "]吗? 删除后，该学生信息将从库中消失，所选床位会空出来。")) {
+                    //确认，发送ajax请求来删除
+
+                    //删除学生
+                    $.ajax({
+                        url: "/student/delete/" + id,
+                        type: "DELETE",
+                        success: function (resultt) {
+
+                            //如果选了寝室，删除寝室与学生的关联，并将床位空闲
+                            //查寝室关联与寝室
+                            //看当前学生是否已经选择了寝室
+                            $.ajax({
+                                url: "/relation/studorm/" + id,
+                                type: "GET",
+                                success: function (result1) {
+                                    if (result1.code === 1) {
+
+                                        //寝室与学生关联删除
+                                        $.ajax({
+                                            url: "/relation/delete/" + result1.extend.info.relationId,
+                                            type: "DELETE",
+                                            success: function (result2) {
+                                            }
+                                        });
+
+                                        //旧寝室旧状态修改
+                                        $.ajax({
+                                            url: "/building/cancel/" + result1.extend.info.dormId + "-" + result1.extend.info.bedNum,
+                                            type: "PUT",
+                                            success: function (result3) {
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+    //空间整合
+    $("#sort-button").click(function () {
+        if (confirm("确认进行空间整合吗? 请确保所有同学都已经选择了寝室，整合后，同学们的寝室选择将可能发生变化。")) {
+            $.ajax({
+                url: "/sort/sortStu",
+                type: "PUT",
+                success: function (result) {
+                    to_page(1, 1);
+
+                    alert("整合结束，请通知同学们及时查看整合后的寝室，管理员也可以在后期进行手动调整。");
+
+                }
+            });
+
+        }
+    });
+
+</script>
+</body>
 </html>

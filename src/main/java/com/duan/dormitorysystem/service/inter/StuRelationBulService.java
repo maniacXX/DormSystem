@@ -29,4 +29,16 @@ public interface StuRelationBulService {
      * @return
      */
     List<StuRelationBul> getInfoByDormId(long dormId);
+
+    /**
+     * 获取所有关系信息
+     * @return 所有关系信息
+     */
+    List<StuRelationBul> getAll();
+
+    /**
+     * 删除与房间相关的id
+     * @param id 房间id
+     */
+    void deleteByDormId(long id);
 }

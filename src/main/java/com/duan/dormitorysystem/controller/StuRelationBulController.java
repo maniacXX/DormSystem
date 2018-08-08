@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Type;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Duan
@@ -87,5 +86,31 @@ public class StuRelationBulController {
         StuRelationBul[] SRBs = new StuRelationBul[list.size()];
         list.toArray(SRBs);
         return Msg.success().add("SRBs",SRBs).add("arrLength",SRBs.length);
+    }
+
+    /**
+     * 获取所有关系，并放入map
+     * @return 关系
+     */
+    @RequestMapping(value = "/mapAll",method = RequestMethod.GET)
+    @ResponseBody
+    public Msg getMapAll(){
+
+        List<StuRelationBul> list=stuRelationBulService.getAll();
+
+        return Msg.success().add("relation",list);
+    }
+
+    /**
+     * 删除与房间相关的id
+     * @param id 房间id
+     * @return 状态
+     */
+    @RequestMapping(value = "/deleteByDormId/{id}",method = RequestMethod.DELETE)
+    @ResponseBody
+    public Msg deleteByDormId(@PathVariable("id") long id){
+        stuRelationBulService.deleteByDormId(id);
+
+        return Msg.success();
     }
 }
