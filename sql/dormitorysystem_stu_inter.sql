@@ -1,0 +1,3 @@
+INSERT INTO dormitorysystem.stu_inter (inter_id, stu_id, inter, gmt_creat, gmt_modified) VALUES (1, 1, '201020120203', '2018-08-08 19:34:40', '2018-08-08 19:34:40');
+INSERT INTO dormitorysystem.stu_inter (inter_id, stu_id, inter, gmt_creat, gmt_modified) VALUES (2, 2, '120301020232', '2018-08-08 19:37:25', '2018-08-08 19:37:25');
+INSERT INTO dormitorysystem.stu_inter (inter_id, stu_id, inter, gmt_creat, gmt_modified) VALUES (3, 3, '112322221132', '2018-08-08 19:43:38', '2018-08-08 19:43:38');

@@ -1,0 +1,1 @@
+INSERT INTO dormitorysystem.tbl_manager (mana_id, mana_name, mana_password, mana_email, gmt_creat, gmt_modified) VALUES (123456, 'jj', '123456', 'jj@duan.com', '2018-08-05 11:47:28', '2018-08-05 11:47:31');
