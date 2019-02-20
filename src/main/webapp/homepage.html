@@ -188,12 +188,6 @@
 
         //初始页面加载
         $(function () {
-            randA = parseInt(Math.random() * 4 + 101)
-            randB = parseInt(Math.random() * 4 + 201)
-            var randStr = randA + '  ' + randB
-            jQuery('#recommend').html(randStr)
-            console.log(123)
-
 
             $(".choose_bed").hide(); //选择床位页面阴藏
             $(".choose_confirm").hide(); //确认页面阴藏
@@ -222,6 +216,20 @@
                                     location.href = "interest.html";
                                 } else {
                                     //已经统计了兴趣
+
+                                    //推荐寝室加载并保存到redis中
+                                    //预计能够拿到返回数据，但算法嵌入为顺利进行，使用随机生成进行模拟
+                                    randA = "21-"+parseInt(Math.random() * 4 + 101);
+                                    randB = "21-"+parseInt(Math.random() * 4 + 201);
+                                    var randStr = randA + ',' + randB;
+                                    jQuery('#recommend').html(randStr);
+                                    $.ajax({
+                                        url:"/building/saveRecom/"+randStr,
+                                        type:"POST",
+                                        success:function (result2) {
+
+                                        }
+                                    });
 
                                     //加载学生信息到页面
                                     loadInfo(result);
@@ -614,9 +622,9 @@
             }
 
             //发ajax请求保存新的数据
-            //寝室状态的修改
+            //寝室状态的修改，并保存寝室，床位信息到redis
             $.ajax({
-                url: "/building/pick/" + newDormId + "-" + newBedNumber,
+                url: "/building/pick/" + newDormId + "-" + newBedNumber+ "-" + stuId ,
                 type: "PUT",
                 success: function (result) {
                     //寝室与人员状态的建立

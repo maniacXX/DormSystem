@@ -64,4 +64,5 @@ public interface BuildingService {
      * @param id 房间id
      */
     void deleteById(long id);
+
 }
