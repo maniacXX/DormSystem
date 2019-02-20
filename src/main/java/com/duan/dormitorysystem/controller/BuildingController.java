@@ -15,7 +15,7 @@ import static com.duan.dormitorysystem.util.SerializeUtil.*;
 
 /**
  * @author Duan
- * @date 2018/6/28 13:30
+ * @date 2018/6/28 13:31
  */
 @Controller
 @RequestMapping("/building")

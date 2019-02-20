@@ -1,6 +1,5 @@
 package com.duan.dormitorysystem.service.inter;
 
-import java.util.ArrayList;
 
 public interface JedisService {
 

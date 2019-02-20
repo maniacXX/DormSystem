@@ -430,7 +430,7 @@
                 alert("您还未选寝室");
             } else {
                 $("#chooseroom").removeClass("active").addClass("success").find("span").html(
-                    "<img src='img/greenclick.png'>"); //UI改变
+                    "<img src='img/greenclick.png'>"); //UI界面改变
                 $("#choosebed").addClass("active");
                 $(".choose_room").hide();
                 $(".choose_bed").show();
@@ -439,7 +439,6 @@
                 loadDormInfo($("#room-num-red").text());
             }
         });
-
         //床位选择页面加载床位
         function loadDormInfo(info) {
             //清空
