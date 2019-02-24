@@ -255,7 +255,7 @@
     </dependency>
 
 
-    <!-- Test-->
+    <!-- Testyy -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -322,7 +322,6 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.25</version>
     </dependency>
-
     <!--pageHelper-->
     <dependency>
       <groupId>com.github.pagehelper</groupId>
@@ -335,12 +334,13 @@
       <artifactId>mybatis-generator-core</artifactId>
       <version>1.3.6</version>
     </dependency>
+
     <!--数据库-->
     <!--c3p0-->
     <dependency>
       <groupId>com.mchange</groupId>
       <artifactId>c3p0</artifactId>
-      <version>[0.9.5.3,)</version>
+      <version>0.9.5.2</version>
     </dependency>
     <!--DBUtils-->
     <dependency>
