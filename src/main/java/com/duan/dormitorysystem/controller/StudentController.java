@@ -1,6 +1,7 @@
 package com.duan.dormitorysystem.controller;
 
 
+import com.duan.dormitorysystem.async.MessageHandler;
 import com.duan.dormitorysystem.bean.Msg;
 import com.duan.dormitorysystem.bean.Student;
 import com.duan.dormitorysystem.service.inter.StudentService;
@@ -25,6 +26,9 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    MessageHandler messageHandler;
 
     /**
      * 登录检测
@@ -59,7 +63,14 @@ public class StudentController {
         if (session.getAttribute("user")==null){
             return Msg.fail();
         }else {
-            return Msg.success().add("student",session.getAttribute("user"));
+            Student student= (Student) session.getAttribute("user");
+            String s=messageHandler.getMessages(String.valueOf(student.getStuId()));
+            Msg msg=Msg.success().add("student",student);
+            if(s==null){
+             return msg.add("message","无");
+            }else {
+                return msg.add("message",msg);
+            }
         }
     }
 

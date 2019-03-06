@@ -176,6 +176,56 @@ public class JedisServiceImpl implements JedisService {
         }
     }
 
+    /**
+     * 入队列
+     * @param dorm 寝室号-选择退出flag-学生学号
+     */
+    public void lpushValue(String dorm) {
+        // 定义redis连接池
+        JedisPool jedisPool = null;
+        // 定义redis实例
+        Jedis jedis = null;
+        try {
+            // 获取redis连接池
+            jedisPool = (JedisPool) applicationContext.getBean("jedisPool");
+            // 获取redis实例
+            jedis = jedisPool.getResource();
+
+            jedis.lpush("list",dorm);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 释放资源
+            free(jedis);
+        }
+    }
+
+    /**
+     * 出队列
+     * @return 寝室号-选择退出flag-学生学号
+     */
+    public Object rpopValue() {
+        // 定义redis连接池
+        JedisPool jedisPool = null;
+        // 定义redis实例
+        Jedis jedis = null;
+        Object object=null;
+        try {
+            // 获取redis连接池
+            jedisPool = (JedisPool) applicationContext.getBean("jedisPool");
+            // 获取redis实例
+            jedis = jedisPool.getResource();
+
+            object=jedis.brpop(0,"list");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 释放资源
+            free(jedis);
+            return object;
+        }
+    }
+
     //释放资源
     private void free(Jedis jedis) {
         if (jedis != null) {

@@ -44,4 +44,16 @@ public interface JedisService {
      */
     void deleteKey(String key);
 
+
+    /**
+     * 入队列
+     * @param dorm 寝室号-选择退出flag-学生学号
+     */
+    void lpushValue(String dorm);
+
+    /**
+     * 出队列
+     * @return 寝室号-选择退出flag-学生学号
+     */
+    Object rpopValue();
 }

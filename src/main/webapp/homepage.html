@@ -182,6 +182,8 @@
         var newBedNumber;
         //学生的id
         var stuId;
+        //学生的姓名
+        var stuName
 
         var randA;
         var randB;
@@ -205,6 +207,7 @@
                         //成功登录
                         //保存Id
                         stuId = result.extend.student.stuId;
+                        stuName=result.extend.student.stuName;
 
                         //是否登记了兴趣
                         $.ajax({
@@ -614,7 +617,7 @@
 
                 //旧寝室旧状态修改
                 $.ajax({
-                    url: "/building/cancel/" + oldDormId + "-" + oldBedNumber,
+                    url: "/building/cancel/" + oldDormId + "-" + oldBedNumber+"-"+stuId,
                     type: "PUT",
                     success: function (result) {}
                 });
@@ -623,7 +626,7 @@
             //发ajax请求保存新的数据
             //寝室状态的修改，并保存寝室，床位信息到redis
             $.ajax({
-                url: "/building/pick/" + newDormId + "-" + newBedNumber+ "-" + stuId ,
+                url: "/building/pick/" + newDormId + "-" + newBedNumber+ "-" + stuId,
                 type: "PUT",
                 success: function (result) {
                     //寝室与人员状态的建立

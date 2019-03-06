@@ -64,5 +64,6 @@
         <table tableName="tbl_manager" domainObjectName="Manager"/>
         <table tableName="mana_building" domainObjectName="ManaRelationBul"/>
         <table tableName="mana_stu" domainObjectName="ManaRelationStu"/>
+        <table tableName="tbl_message" domainObjectName="Message"/>
     </context>
 </generatorConfiguration>

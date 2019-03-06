@@ -88,7 +88,7 @@ public class BuildingController {
     /**
      * 寝室床位状态置零
      *
-     * @param info 寝室号-床位号
+     * @param info 寝室号-床位号-学生姓名
      * @return
      */
     @RequestMapping(value = "/cancel/{info}", method = RequestMethod.PUT)
@@ -115,15 +115,23 @@ public class BuildingController {
         if(jedisService.keyExists(String.valueOf(building.getDormId())) ){
             jedisService.deleteKey(String.valueOf(building.getDormId()));
             jedisService.deleteKey(building.getBuildingNumber()+"-"+building.getDormNumber());
-
         }
+
+        //此学生取消选择寝室的状态放入redis中,在另一个线程中保存message
+        //建立MQ的一步，便于解耦操作，减少前端等待时间
+        //statu=寝室号-0（退出寝室标志）-学生学号
+        String statu = infos[0]+"-"+"0"+"-"+infos[2];
+        jedisService.lpushValue(statu);
+
+        System.out.println("11111");
+
         return Msg.success();
     }
 
     /**
      * 寝室床位状态选择
      *
-     * @param info 寝室号-床位号
+     * @param info 寝室号-床位号-学生姓名
      * @return
      */
     @RequestMapping(value = "/pick/{info}", method = RequestMethod.PUT)
@@ -153,6 +161,11 @@ public class BuildingController {
         jedisService.setObject(String.valueOf(building.getDormId()),building);
         jedisService.setString(building.getBuildingNumber()+"-"+building.getDormNumber(),String.valueOf(building.getDormId()));
 
+        //此学生选择寝室的状态放入redis中,在另一个线程中保存message
+        //建立MQ的一步，便于解耦操作，减少前端等待时间
+        //statu=寝室号-1（选择寝室标志）-学生学号
+        String statu = infos[0]+"-"+"1"+"-"+infos[2];
+        jedisService.lpushValue(statu);
 
         return Msg.success();
     }
