@@ -13,9 +13,6 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-/**
- * Created by nowcoder on 2016/7/30.
- */
 @Controller
 public class MessageConsumer implements InitializingBean, ApplicationContextAware {
     private static final Logger logger = LoggerFactory.getLogger(MessageConsumer.class);
